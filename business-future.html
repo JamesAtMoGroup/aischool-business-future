@@ -1790,6 +1790,35 @@
       });
     });
   }
+
+  // ────── Video autoplay throttle fix ──────
+  // 整頁有 ~45 個 video element，同時 autoplay 超過 Chrome 限制部分會黑屏。
+  // 用 IntersectionObserver 只播 viewport 內的 video，離開就 pause + 釋放 decoder。
+  (() => {
+    const videos = document.querySelectorAll('video');
+    if (!videos.length || !('IntersectionObserver' in window)) return;
+
+    const io = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        const v = entry.target;
+        if (entry.isIntersecting) {
+          // viewport 內 → 嘗試 play (autoplay 已宣告但部分 video 在 onload 時被 throttle)
+          if (v.paused) {
+            const p = v.play();
+            if (p && p.catch) p.catch(() => {/* autoplay blocked, ignore */});
+          }
+        } else {
+          // 離開 viewport → pause 釋放 video decoder
+          if (!v.paused) v.pause();
+        }
+      });
+    }, {
+      rootMargin: '200px 0px',  // 提前 200px 預載，避免捲到才開始 play 太突兀
+      threshold: 0
+    });
+
+    videos.forEach((v) => io.observe(v));
+  })();
 </script>
 
 </body>
