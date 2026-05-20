@@ -171,6 +171,9 @@
     width:100%;height:100%;object-fit:cover;display:block;
   }
   .station-media.cover-fit img{object-fit:cover;}
+  /* 完整 16:9（影片不裁切，可直接在頁面播放）*/
+  .station-media.media-16-9{aspect-ratio:16/9;background:#000;}
+  .station-media.media-16-9 video{object-fit:contain;}
   .station-media .frame-tag{
     position:absolute;top:18px;left:18px;
     background:rgba(0,0,0,0.7);backdrop-filter:blur(8px);
@@ -1059,16 +1062,15 @@
 
     <div class="stations">
 
-      <!-- 每日吸收 (媒體點擊→ai-school.tw 免費試看) -->
+      <!-- 每日吸收 (影片直接在頁面播放，不連官網) -->
       <div class="station fade-up">
         <div>
-          <a class="station-media station-link" href="https://ai-school.tw/programs/eea7d816-29b2-4bd9-8a48-3dc6cec03864/contents/8d86c742-5a9d-425d-a000-b808a73b2ffd?back=programs_eea7d816-29b2-4bd9-8a48-3dc6cec03864" target="_blank" rel="noopener">
-            <video autoplay muted loop playsinline preload="metadata">
+          <div class="station-media media-16-9">
+            <video controls autoplay muted loop playsinline preload="metadata">
               <source src="assets/daily_knowledge.mp4" type="video/mp4">
             </video>
             <div class="frame-tag">每日 5 分鐘</div>
-            <div class="play-cta">點擊看免費試看 →</div>
-          </a>
+          </div>
           <div class="episode-grid">
             <img src="assets/step1_a.jpg" alt="集數預覽">
             <img src="assets/step1_b.jpg" alt="集數預覽">
