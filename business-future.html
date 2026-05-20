@@ -279,21 +279,14 @@
   @keyframes liveScroll{from{transform:translateX(0);}to{transform:translateX(-50%);}}
   .live-schedule:hover .live-schedule-track{animation-play-state:paused;}
   .live-event{
-    display:flex;flex-direction:column;align-items:flex-start;gap:12px;flex-shrink:0;
-    width:248px;padding:18px;border-radius:12px;
+    display:flex;align-items:center;flex-shrink:0;
+    width:250px;min-height:104px;padding:22px;border-radius:12px;
     background:var(--surface);border:1px solid var(--border);
+    border-left:3px solid var(--accent2);
     transition:transform 0.25s ease,border-color 0.25s ease;
   }
-  .live-event:hover{transform:translateY(-4px);border-color:var(--accent2);}
-  .live-event-badge{
-    flex-shrink:0;font-size:9px;font-weight:900;letter-spacing:0.06em;
-    color:#fff;background:#ff3b30;border-radius:5px;padding:4px 8px;text-align:center;
-  }
-  .live-event-badge.replay{background:rgba(255,115,64,0.18);color:var(--accent2);}
-  .live-event-badge.master{background:rgba(168,208,0,0.18);color:var(--accent);}
-  .live-event-info{min-width:0;}
-  .live-event-title{font-size:14px;font-weight:700;color:var(--text);line-height:1.45;}
-  .live-event-meta{font-size:10.5px;color:var(--text-3);margin-top:6px;}
+  .live-event:hover{transform:translateY(-4px);}
+  .live-event-title{font-size:15px;font-weight:700;color:var(--text);line-height:1.5;}
 
   /* ────── Outcome ────── */
   .outcome{
@@ -881,6 +874,31 @@
     display:grid;grid-template-columns:repeat(2,1fr);gap:24px;margin-top:56px;
   }
   @media(max-width:880px){.demos-grid{grid-template-columns:1fr;}}
+
+  /* IG carousel 漂浮輪播（學院 IG 內容，右→左 + 個別上下漂浮）*/
+  .ig-carousel{
+    position:relative;margin-top:56px;overflow:hidden;padding:34px 0;
+    -webkit-mask-image:linear-gradient(90deg,transparent,#000 5%,#000 95%,transparent);
+    mask-image:linear-gradient(90deg,transparent,#000 5%,#000 95%,transparent);
+  }
+  .ig-track{
+    display:flex;gap:28px;width:max-content;
+    animation:igScroll 80s linear infinite;
+  }
+  .ig-carousel:hover .ig-track{animation-play-state:paused;}
+  @keyframes igScroll{from{transform:translateX(0);}to{transform:translateX(-50%);}}
+  .ig-slide{
+    flex-shrink:0;width:238px;border-radius:16px;overflow:hidden;
+    border:1px solid var(--border);
+    box-shadow:0 24px 50px rgba(0,0,0,0.45);
+    animation:igFloat 7s ease-in-out infinite;
+  }
+  .ig-slide img{width:100%;height:100%;display:block;object-fit:cover;}
+  @keyframes igFloat{0%,100%{transform:translateY(0);}50%{transform:translateY(-12px);}}
+  .ig-slide:nth-child(2n){animation-delay:-2.3s;}
+  .ig-slide:nth-child(3n){animation-delay:-4.6s;}
+  .ig-slide:nth-child(5n){animation-delay:-1.2s;}
+  @media(max-width:600px){.ig-slide{width:180px;}}
   .demo-card{
     background:var(--surface);border:1px solid var(--border);
     border-radius:12px;overflow:hidden;
@@ -1096,22 +1114,22 @@
         </div>
         <div class="live-schedule" aria-label="近期直播場次輪播">
           <div class="live-schedule-track">
-            <!-- 真實場次（James 2026-05-20 提供；複製兩份做無縫輪播）-->
-              <div class="live-event"><div class="live-event-badge">LIVE</div><div class="live-event-info"><div class="live-event-title">本地端的終端代理：Claude Code &amp; Gemini CLI</div><div class="live-event-meta">今晚 · 05/20(三) 20:00</div></div></div>
-              <div class="live-event"><div class="live-event-badge master">即將</div><div class="live-event-info"><div class="live-event-title">不吃虧接案心理學</div><div class="live-event-meta">05/25(一) 19:30</div></div></div>
-              <div class="live-event"><div class="live-event-badge master">即將</div><div class="live-event-info"><div class="live-event-title">OpenClaw 安裝到啟用 — 打造專屬 AI 助手</div><div class="live-event-meta">05/27(三) 20:00</div></div></div>
-              <div class="live-event"><div class="live-event-badge master">即將</div><div class="live-event-info"><div class="live-event-title">AI 產品進行式 Prompt → RAG → Agentic AI</div><div class="live-event-meta">05/30(六) 11:00</div></div></div>
-              <div class="live-event"><div class="live-event-badge master">即將</div><div class="live-event-info"><div class="live-event-title">遊戲開發者的挑戰</div><div class="live-event-meta">05/30(六) 19:30</div></div></div>
-              <div class="live-event"><div class="live-event-badge master">即將</div><div class="live-event-info"><div class="live-event-title">影像價值學</div><div class="live-event-meta">06/02(二) 19:30</div></div></div>
-              <div class="live-event"><div class="live-event-badge replay">回放</div><div class="live-event-info"><div class="live-event-title">不懂程式也能玩！好上手的 Codex &amp; Replit</div><div class="live-event-meta">05/13(三) · 可重播</div></div></div>
+            <!-- 真實場次主題（James 2026-05-20；只留主題不寫日期/狀態，免每月更新；複製兩份無縫輪播）-->
+              <div class="live-event"><div class="live-event-title">本地端的終端代理：Claude Code &amp; Gemini CLI</div></div>
+              <div class="live-event"><div class="live-event-title">不吃虧接案心理學</div></div>
+              <div class="live-event"><div class="live-event-title">OpenClaw 安裝到啟用 — 打造專屬 AI 助手</div></div>
+              <div class="live-event"><div class="live-event-title">AI 產品進行式 Prompt → RAG → Agentic AI</div></div>
+              <div class="live-event"><div class="live-event-title">遊戲開發者的挑戰</div></div>
+              <div class="live-event"><div class="live-event-title">影像價值學</div></div>
+              <div class="live-event"><div class="live-event-title">不懂程式也能玩！好上手的 Codex &amp; Replit</div></div>
               <!-- 複製份 -->
-              <div class="live-event" aria-hidden="true"><div class="live-event-badge">LIVE</div><div class="live-event-info"><div class="live-event-title">本地端的終端代理：Claude Code &amp; Gemini CLI</div><div class="live-event-meta">今晚 · 05/20(三) 20:00</div></div></div>
-              <div class="live-event" aria-hidden="true"><div class="live-event-badge master">即將</div><div class="live-event-info"><div class="live-event-title">不吃虧接案心理學</div><div class="live-event-meta">05/25(一) 19:30</div></div></div>
-              <div class="live-event" aria-hidden="true"><div class="live-event-badge master">即將</div><div class="live-event-info"><div class="live-event-title">OpenClaw 安裝到啟用 — 打造專屬 AI 助手</div><div class="live-event-meta">05/27(三) 20:00</div></div></div>
-              <div class="live-event" aria-hidden="true"><div class="live-event-badge master">即將</div><div class="live-event-info"><div class="live-event-title">AI 產品進行式 Prompt → RAG → Agentic AI</div><div class="live-event-meta">05/30(六) 11:00</div></div></div>
-              <div class="live-event" aria-hidden="true"><div class="live-event-badge master">即將</div><div class="live-event-info"><div class="live-event-title">遊戲開發者的挑戰</div><div class="live-event-meta">05/30(六) 19:30</div></div></div>
-              <div class="live-event" aria-hidden="true"><div class="live-event-badge master">即將</div><div class="live-event-info"><div class="live-event-title">影像價值學</div><div class="live-event-meta">06/02(二) 19:30</div></div></div>
-              <div class="live-event" aria-hidden="true"><div class="live-event-badge replay">回放</div><div class="live-event-info"><div class="live-event-title">不懂程式也能玩！好上手的 Codex &amp; Replit</div><div class="live-event-meta">05/13(三) · 可重播</div></div></div>
+              <div class="live-event" aria-hidden="true"><div class="live-event-title">本地端的終端代理：Claude Code &amp; Gemini CLI</div></div>
+              <div class="live-event" aria-hidden="true"><div class="live-event-title">不吃虧接案心理學</div></div>
+              <div class="live-event" aria-hidden="true"><div class="live-event-title">OpenClaw 安裝到啟用 — 打造專屬 AI 助手</div></div>
+              <div class="live-event" aria-hidden="true"><div class="live-event-title">AI 產品進行式 Prompt → RAG → Agentic AI</div></div>
+              <div class="live-event" aria-hidden="true"><div class="live-event-title">遊戲開發者的挑戰</div></div>
+              <div class="live-event" aria-hidden="true"><div class="live-event-title">影像價值學</div></div>
+              <div class="live-event" aria-hidden="true"><div class="live-event-title">不懂程式也能玩！好上手的 Codex &amp; Replit</div></div>
             </div>
         </div>
       </div>
@@ -1667,67 +1685,50 @@
   </div>
 </section>
 
-<!-- DEMOS SHOWCASE: 看看用 AI 能做出什麼（中文影片）-->
+<!-- DEMOS SHOWCASE: 看看用 AI 能做出什麼（學院 IG carousel 漂浮輪播）-->
 <section class="demos-section">
   <div class="container">
     <div class="fade-up">
       <div class="section-eyebrow">實際成品 · Showcase</div>
       <h2>看看用 AI 能做出什麼</h2>
-      <p class="section-lead">學員學會 AI 工具後能做到的事 — 從零做出 App、做網站、做自動化、做自己的生財工具。看完你會懂為什麼這條路值得走。</p>
+      <p class="section-lead">會用 AI 的人，正用一句話做完別人一整週的工作 — 這些都是學員學會工具後做得到的事。往右滑，看 AI 其實早就做得到的那些事。</p>
     </div>
+  </div>
 
-    <div class="demos-grid fade-up">
-      <a class="demo-card" href="https://www.youtube.com/watch?v=2pM-7fBXc_M" target="_blank" rel="noopener" data-yt="2pM-7fBXc_M" style="text-decoration:none;color:inherit;">
-        <div class="demo-iframe-wrap">
-          <img src="assets/yt_zh_2pM-7fBXc_M.jpg" alt="保姆級教學 Vibe Coding">
-          <div class="demo-play-overlay"><div class="demo-play-btn">▶</div></div>
-        </div>
-        <div class="demo-content">
-          <div class="demo-label">中文 · 保姆級教學</div>
-          <div class="demo-title">羨慕別人用 AI 開發酷產品？保姆級教學讓你動動嘴就做出 Anything</div>
-          <div class="demo-body">完全中文的 Vibe Coding 入門教學 — 看別人怎麼用對話寫程式做出實際 App，學員看完就能跟著做。</div>
-          <div class="demo-link">在 YouTube 觀看完整影片 →</div>
-        </div>
-      </a>
-
-      <a class="demo-card" href="https://www.youtube.com/watch?v=-FW5DgQEV0M" target="_blank" rel="noopener" data-yt="-FW5DgQEV0M" style="text-decoration:none;color:inherit;">
-        <div class="demo-iframe-wrap">
-          <img src="assets/yt_zh_-FW5DgQEV0M.jpg" alt="Google Antigravity Vibe Coding">
-          <div class="demo-play-overlay"><div class="demo-play-btn">▶</div></div>
-        </div>
-        <div class="demo-content">
-          <div class="demo-label">中文 · 全端專案</div>
-          <div class="demo-title">把想法化為現實 — 用 Vibe Coding 完成輕量級全端專案</div>
-          <div class="demo-body">中文示範用 Vibe Coding 做出 React 前端 + 後端 + 資料庫的完整全端專案。學員旅程 Step 3「落地」階段最值得參考。</div>
-          <div class="demo-link">在 YouTube 觀看完整影片 →</div>
-        </div>
-      </a>
-
-      <a class="demo-card" href="https://www.youtube.com/watch?v=Df9rYgZGwfE" target="_blank" rel="noopener" data-yt="Df9rYgZGwfE" style="text-decoration:none;color:inherit;">
-        <div class="demo-iframe-wrap">
-          <img src="assets/yt_zh_Df9rYgZGwfE.jpg" alt="v0 AI 10 分鐘做網站">
-          <div class="demo-play-overlay"><div class="demo-play-btn">▶</div></div>
-        </div>
-        <div class="demo-content">
-          <div class="demo-label">中文 · 10 分鐘做網站</div>
-          <div class="demo-title">用 v0 + AI，10 分鐘快速做出一個網站</div>
-          <div class="demo-body">中文教學 — 不寫程式也能在 10 分鐘做出可用的網站原型。學員旅程 Step 2「實戰」會學到這類工具。</div>
-          <div class="demo-link">在 YouTube 觀看完整影片 →</div>
-        </div>
-      </a>
-
-      <a class="demo-card" href="https://www.youtube.com/watch?v=8me0juJCpWM" target="_blank" rel="noopener" data-yt="8me0juJCpWM" style="text-decoration:none;color:inherit;">
-        <div class="demo-iframe-wrap">
-          <img src="assets/yt_zh_8me0juJCpWM.jpg" alt="Vibe Coding 是什麼 Tech Away">
-          <div class="demo-play-overlay"><div class="demo-play-btn">▶</div></div>
-        </div>
-        <div class="demo-content">
-          <div class="demo-label">中文 · 概念入門</div>
-          <div class="demo-title">Vibe Coding 是什麼？矽谷最潮新名詞 — 3 大 AI 工具一次看</div>
-          <div class="demo-body">中文媒體 Tech Away 介紹 Vibe Coding 是什麼、會不會搶程式設計師工作、有哪 3 大主流 AI 工具。最適合剛接觸 AI 的學員 Day 1 看。</div>
-          <div class="demo-link">在 YouTube 觀看完整影片 →</div>
-        </div>
-      </a>
+  <div class="ig-carousel fade-up" aria-label="學院 IG 內容輪播">
+    <div class="ig-track">
+      <!-- 學院 IG carousel slide_01~15（複製兩份做無縫輪播）-->
+      <div class="ig-slide"><img src="assets/ig/slide_01.png" alt="AI 未來學院 IG 1" loading="lazy"></div>
+      <div class="ig-slide"><img src="assets/ig/slide_02.png" alt="AI 未來學院 IG 2" loading="lazy"></div>
+      <div class="ig-slide"><img src="assets/ig/slide_03.png" alt="AI 未來學院 IG 3" loading="lazy"></div>
+      <div class="ig-slide"><img src="assets/ig/slide_04.png" alt="AI 未來學院 IG 4" loading="lazy"></div>
+      <div class="ig-slide"><img src="assets/ig/slide_05.png" alt="AI 未來學院 IG 5" loading="lazy"></div>
+      <div class="ig-slide"><img src="assets/ig/slide_06.png" alt="AI 未來學院 IG 6" loading="lazy"></div>
+      <div class="ig-slide"><img src="assets/ig/slide_07.png" alt="AI 未來學院 IG 7" loading="lazy"></div>
+      <div class="ig-slide"><img src="assets/ig/slide_08.png" alt="AI 未來學院 IG 8" loading="lazy"></div>
+      <div class="ig-slide"><img src="assets/ig/slide_09.png" alt="AI 未來學院 IG 9" loading="lazy"></div>
+      <div class="ig-slide"><img src="assets/ig/slide_10.png" alt="AI 未來學院 IG 10" loading="lazy"></div>
+      <div class="ig-slide"><img src="assets/ig/slide_11.png" alt="AI 未來學院 IG 11" loading="lazy"></div>
+      <div class="ig-slide"><img src="assets/ig/slide_12.png" alt="AI 未來學院 IG 12" loading="lazy"></div>
+      <div class="ig-slide"><img src="assets/ig/slide_13.png" alt="AI 未來學院 IG 13" loading="lazy"></div>
+      <div class="ig-slide"><img src="assets/ig/slide_14.png" alt="AI 未來學院 IG 14" loading="lazy"></div>
+      <div class="ig-slide"><img src="assets/ig/slide_15.png" alt="AI 未來學院 IG 15" loading="lazy"></div>
+      <!-- 複製份 -->
+      <div class="ig-slide" aria-hidden="true"><img src="assets/ig/slide_01.png" alt="" loading="lazy"></div>
+      <div class="ig-slide" aria-hidden="true"><img src="assets/ig/slide_02.png" alt="" loading="lazy"></div>
+      <div class="ig-slide" aria-hidden="true"><img src="assets/ig/slide_03.png" alt="" loading="lazy"></div>
+      <div class="ig-slide" aria-hidden="true"><img src="assets/ig/slide_04.png" alt="" loading="lazy"></div>
+      <div class="ig-slide" aria-hidden="true"><img src="assets/ig/slide_05.png" alt="" loading="lazy"></div>
+      <div class="ig-slide" aria-hidden="true"><img src="assets/ig/slide_06.png" alt="" loading="lazy"></div>
+      <div class="ig-slide" aria-hidden="true"><img src="assets/ig/slide_07.png" alt="" loading="lazy"></div>
+      <div class="ig-slide" aria-hidden="true"><img src="assets/ig/slide_08.png" alt="" loading="lazy"></div>
+      <div class="ig-slide" aria-hidden="true"><img src="assets/ig/slide_09.png" alt="" loading="lazy"></div>
+      <div class="ig-slide" aria-hidden="true"><img src="assets/ig/slide_10.png" alt="" loading="lazy"></div>
+      <div class="ig-slide" aria-hidden="true"><img src="assets/ig/slide_11.png" alt="" loading="lazy"></div>
+      <div class="ig-slide" aria-hidden="true"><img src="assets/ig/slide_12.png" alt="" loading="lazy"></div>
+      <div class="ig-slide" aria-hidden="true"><img src="assets/ig/slide_13.png" alt="" loading="lazy"></div>
+      <div class="ig-slide" aria-hidden="true"><img src="assets/ig/slide_14.png" alt="" loading="lazy"></div>
+      <div class="ig-slide" aria-hidden="true"><img src="assets/ig/slide_15.png" alt="" loading="lazy"></div>
     </div>
   </div>
 </section>
@@ -1814,21 +1815,6 @@
     });
   });
   } // end animation block
-
-  // YouTube facade: 點 thumbnail 在 http(s) 環境下就地 inject iframe 播放
-  // file:// 環境會 fallback 到 a href 開新 tab (因為 YouTube 禁止 file:// embed)
-  if (location.protocol === 'http:' || location.protocol === 'https:') {
-    document.querySelectorAll('.demo-card[data-yt]').forEach(card => {
-      card.addEventListener('click', (e) => {
-        const ytId = card.dataset.yt;
-        if (!ytId) return;
-        e.preventDefault();
-        const wrap = card.querySelector('.demo-iframe-wrap');
-        if (!wrap) return;
-        wrap.innerHTML = `<iframe src="https://www.youtube.com/embed/${ytId}?autoplay=1&modestbranding=1&rel=0" style="width:100%;height:100%;border:0;display:block;" allow="autoplay; encrypted-media; picture-in-picture" allowfullscreen></iframe>`;
-      });
-    });
-  }
 
   // ────── Video autoplay throttle fix ──────
   // 整頁有 ~45 個 video element，同時 autoplay 超過 Chrome 限制部分會黑屏。
