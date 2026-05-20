@@ -75,6 +75,9 @@
   }
   .site-nav .nav-cta:hover{color:var(--accent);}
   @media(max-width:600px){.site-nav{height:58px;padding:0 5%;}.site-nav .logo{font-size:1.15rem;}}
+  /* 卡片 hover 統一官網風格（translateY + 邊框變薄荷綠）*/
+  .align-card,.resource,.ending,.mentor-stop,.milestone{transition:transform 0.3s ease,border-color 0.3s ease;}
+  .align-card:hover,.resource:hover,.ending:hover,.mentor-stop:hover{transform:translateY(-4px);border-color:rgba(124,255,178,0.25);}
   /* 標題用 Syne（對齊官網主視覺），中文 fallback Noto Sans TC */
   h1,h2,h3,h4,.station-title,.live-title,.fde-h2,.closing-line,.mock-h,.mock-hero-h,.outcome h2,.ending h3{
     font-family:'Syne','Noto Sans TC',sans-serif;
@@ -146,7 +149,7 @@
   }
 
   /* ────── Section base ────── */
-  section.s{padding:140px 32px;position:relative;}
+  section.s{padding:100px 5%;position:relative;}
   .container{max-width:1100px;margin:0 auto;position:relative;z-index:2;}
   .section-eyebrow{
     font-family:'DM Sans',sans-serif;font-size:11px;
@@ -504,7 +507,7 @@
   /* ────── Sales alignment (3 對齊定義 + 服務里程碑) ────── */
   .alignment-section{
     position:relative;background:linear-gradient(180deg,var(--bg),#0d0d14);
-    padding:140px 32px;
+    padding:100px 5%;
   }
   .alignment-cards{
     display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin-top:48px;
@@ -699,7 +702,7 @@
   /* ────── Vibe Coding showcase (高仿真 mockup with fake data, 不連真實 URL) ────── */
   .showcase-section{
     background:linear-gradient(180deg,#0d0d14,#0a0a10);
-    padding:140px 32px;position:relative;overflow:hidden;
+    padding:100px 5%;position:relative;overflow:hidden;
   }
   .showcase-grid{
     display:grid;grid-template-columns:repeat(2,1fr);gap:24px;margin-top:48px;
@@ -885,7 +888,7 @@
   /* ────── Demos showcase ────── */
   .demos-section{
     position:relative;background:linear-gradient(180deg,var(--bg),#0a0a10);
-    padding:140px 32px;
+    padding:100px 5%;
   }
   .demos-grid{
     display:grid;grid-template-columns:repeat(2,1fr);gap:24px;margin-top:56px;
