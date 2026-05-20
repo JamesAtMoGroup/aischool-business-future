@@ -807,6 +807,10 @@
   .badge-green{background:rgba(124,255,178,0.15);color:var(--accent);}
   .badge-orange{background:rgba(255,159,67,0.15);color:var(--accent2);}
   .badge-mentor{background:rgba(168,85,247,0.15);color:var(--mentor);}
+  /* 影片覆蓋率進度條（對齊 kolable-dashboard）*/
+  .mock-bar{height:5px;background:rgba(255,255,255,0.08);border-radius:3px;overflow:hidden;margin-top:4px;}
+  .mock-bar i{display:block;height:100%;background:var(--accent);border-radius:3px;}
+  .mock-bar i.mid{background:var(--accent2);}
 
   /* Watermark */
   .mock-watermark{
@@ -1545,7 +1549,7 @@
                 <div class="mock-logo-mark"></div>
                 <div class="mock-logo-text">AI 教練後台</div>
               </div>
-              <div class="mock-nav-item active"><span class="ico"></span>儀表板</div>
+              <div class="mock-nav-item active"><span class="ico"></span>工單總覽</div>
               <div class="mock-nav-item"><span class="ico"></span>對話紀錄</div>
               <div class="mock-nav-item"><span class="ico"></span>學員管理</div>
               <div class="mock-nav-item"><span class="ico"></span>知識庫</div>
@@ -1553,19 +1557,19 @@
               <div class="mock-nav-item"><span class="ico"></span>設定</div>
             </div>
             <div class="mock-main">
-              <div class="mock-h">教練即時監控</div>
-              <div class="mock-sub">過去 24 小時的對話流量、活躍學員、教練回應品質</div>
+              <div class="mock-h">工單即時監控</div>
+              <div class="mock-sub">學員提問自動分類、分流、追蹤處理進度</div>
               <div class="mock-kpis">
                 <div class="mock-kpi"><div class="mock-kpi-label">今日對話</div><div class="mock-kpi-num">1,247</div><div class="mock-kpi-trend">▲ 12.4%</div></div>
-                <div class="mock-kpi orange"><div class="mock-kpi-label">活躍學員</div><div class="mock-kpi-num">89</div><div class="mock-kpi-trend">▲ 8 人</div></div>
+                <div class="mock-kpi orange"><div class="mock-kpi-label">待處理工單</div><div class="mock-kpi-num">6</div><div class="mock-kpi-trend">3 件升級</div></div>
                 <div class="mock-kpi mentor"><div class="mock-kpi-label">平均回應</div><div class="mock-kpi-num">8.2 s</div><div class="mock-kpi-trend">▼ 1.3s</div></div>
               </div>
-              <div class="mock-chart-box">
-                <div class="mock-chart-h">過去 24 小時對話量</div>
-                <svg class="mock-chart-svg" viewBox="0 0 200 30" preserveAspectRatio="none">
-                  <polyline fill="none" stroke="#7cffb2" stroke-width="1.2" points="0,22 14,18 28,20 42,12 56,15 70,8 84,11 98,5 112,9 126,4 140,7 154,10 168,6 182,9 196,5"/>
-                  <polyline fill="rgba(124,255,178,0.15)" stroke="none" points="0,22 14,18 28,20 42,12 56,15 70,8 84,11 98,5 112,9 126,4 140,7 154,10 168,6 182,9 196,5 196,30 0,30"/>
-                </svg>
+              <div class="mock-table">
+                <div class="mock-table-head"><div style="flex:2">學員提問</div><div>類別</div><div>狀態</div></div>
+                <div class="mock-row"><div style="flex:2">MCP 連 GitHub 失敗⋯</div><div><span class="badge badge-green">課程</span></div><div>已解決</div></div>
+                <div class="mock-row"><div style="flex:2">希望能加匯出功能</div><div><span class="badge badge-orange">建議</span></div><div>處理中</div></div>
+                <div class="mock-row"><div style="flex:2">課程內容想確認⋯</div><div><span class="badge badge-mentor">客訴</span></div><div>已升級</div></div>
+                <div class="mock-row"><div style="flex:2">業師預約方式？</div><div><span class="badge badge-green">行政</span></div><div>轉助教</div></div>
               </div>
             </div>
           </div>
@@ -1669,38 +1673,37 @@
             <div class="mock-sidebar">
               <div class="mock-logo">
                 <div class="mock-logo-mark" style="background:var(--accent2);"></div>
-                <div class="mock-logo-text">Ops Console</div>
+                <div class="mock-logo-text">課程營運台</div>
               </div>
-              <div class="mock-nav-item"><span class="ico"></span>總覽</div>
-              <div class="mock-nav-item active"><span class="ico"></span>營收分析</div>
-              <div class="mock-nav-item"><span class="ico"></span>訂單管理</div>
-              <div class="mock-nav-item"><span class="ico"></span>權益開通</div>
-              <div class="mock-nav-item"><span class="ico"></span>會員管理</div>
+              <div class="mock-nav-item"><span class="ico"></span>課程概況</div>
+              <div class="mock-nav-item active"><span class="ico"></span>課程列表</div>
+              <div class="mock-nav-item"><span class="ico"></span>製作追蹤</div>
+              <div class="mock-nav-item"><span class="ico"></span>稽核總覽</div>
               <div class="mock-nav-item"><span class="ico"></span>報表</div>
             </div>
             <div class="mock-main">
-              <div class="mock-h">營收分析 · 本月</div>
-              <div class="mock-sub">May 2026 · 主方案訂閱 / 加購服務 / 接案媒合</div>
+              <div class="mock-h">課程製作追蹤</div>
+              <div class="mock-sub">課程上架進度、影片覆蓋率、製作階段一覽</div>
               <div class="mock-kpis">
-                <div class="mock-kpi"><div class="mock-kpi-label">本月新增</div><div class="mock-kpi-num">23</div><div class="mock-kpi-trend">▲ 18%</div></div>
-                <div class="mock-kpi orange"><div class="mock-kpi-label">總會員</div><div class="mock-kpi-num">412</div><div class="mock-kpi-trend">▲ 5.6%</div></div>
-                <div class="mock-kpi mentor"><div class="mock-kpi-label">完課率</div><div class="mock-kpi-num">87%</div><div class="mock-kpi-trend">穩定</div></div>
+                <div class="mock-kpi"><div class="mock-kpi-label">課程總數</div><div class="mock-kpi-num">48</div><div class="mock-kpi-trend">▲ 3</div></div>
+                <div class="mock-kpi orange"><div class="mock-kpi-label">製作中</div><div class="mock-kpi-num">7</div><div class="mock-kpi-trend">本週</div></div>
+                <div class="mock-kpi mentor"><div class="mock-kpi-label">平均覆蓋率</div><div class="mock-kpi-num">87%</div><div class="mock-kpi-trend">▲ 4%</div></div>
               </div>
               <div class="mock-table">
                 <div class="mock-table-head">
-                  <div>訂單編號</div><div>類型</div><div>狀態</div><div>建立時間</div>
+                  <div style="flex:2">課程名稱</div><div style="flex:1.4">影片覆蓋率</div><div>狀態</div>
                 </div>
                 <div class="mock-row">
-                  <div>#A-4821</div><div>主方案</div><div><span class="badge badge-green">已開通</span></div><div>05 / 12</div>
+                  <div style="flex:2">AI 工作流入門</div><div style="flex:1.4">92%<div class="mock-bar"><i style="width:92%"></i></div></div><div><span class="badge badge-green">已上架</span></div>
                 </div>
                 <div class="mock-row">
-                  <div>#A-4820</div><div>主方案</div><div><span class="badge badge-green">已開通</span></div><div>05 / 11</div>
+                  <div style="flex:2">Prompt 設計實戰</div><div style="flex:1.4">100%<div class="mock-bar"><i style="width:100%"></i></div></div><div><span class="badge badge-green">已上架</span></div>
                 </div>
                 <div class="mock-row">
-                  <div>#A-4819</div><div>主方案</div><div><span class="badge badge-orange">處理中</span></div><div>05 / 10</div>
+                  <div style="flex:2">RAG 應用進階</div><div style="flex:1.4">64%<div class="mock-bar"><i class="mid" style="width:64%"></i></div></div><div><span class="badge badge-orange">製作中</span></div>
                 </div>
                 <div class="mock-row">
-                  <div>#A-4818</div><div>加購</div><div><span class="badge badge-mentor">已配對</span></div><div>05 / 09</div>
+                  <div style="flex:2">多模態 AI 概論</div><div style="flex:1.4">38%<div class="mock-bar"><i class="mid" style="width:38%"></i></div></div><div><span class="badge badge-orange">製作中</span></div>
                 </div>
               </div>
             </div>
