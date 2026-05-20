@@ -34,28 +34,32 @@
 -->
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700;900&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@600;700;800&family=DM+Sans:wght@300;400;500&family=Noto+Sans+TC:wght@400;500;700;900&display=swap" rel="stylesheet">
 
 <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
 
 <style>
   :root {
-    --bg:#0f0f14; --surface:#1a1a23; --surface-2:#23232e;
-    --border:rgba(255,255,255,0.08); --border-2:rgba(255,255,255,0.18);
-    --text:#f5f5f7; --text-2:#c8c8d4; --muted:#8a8a98;
-    --accent:#a8d000;
-    --accent-bg:rgba(168,208,0,0.12);
-    --accent2:#ff7340;
-    --accent2-bg:rgba(255,115,64,0.12);
-    --mentor:#a78bfa;
-    --mentor-bg:rgba(167,139,250,0.12);
+    --bg:#09090f; --surface:#111118; --surface-2:#16161f;
+    --border:rgba(255,255,255,0.07); --border-2:rgba(255,255,255,0.16);
+    --text:#f0f0f5; --text-2:rgba(240,240,245,0.65); --text-3:rgba(240,240,245,0.45); --muted:rgba(240,240,245,0.45);
+    --accent:#7cffb2;
+    --accent-bg:rgba(124,255,178,0.12);
+    --accent2:#ff9f43;
+    --accent2-bg:rgba(255,159,67,0.12);
+    --mentor:#a855f7;
+    --mentor-bg:rgba(168,85,247,0.12);
   }
   *{margin:0;padding:0;box-sizing:border-box;}
   html{scroll-behavior:smooth;}
+  /* 標題用 Syne（對齊官網主視覺），中文 fallback Noto Sans TC */
+  h1,h2,h3,h4,.station-title,.live-title,.fde-h2,.closing-line,.mock-h,.mock-hero-h,.outcome h2,.ending h3{
+    font-family:'Syne','Noto Sans TC',sans-serif;
+  }
   body{
     background:var(--bg);color:var(--text);
-    font-family:'Noto Sans TC',sans-serif;
+    font-family:'DM Sans','Noto Sans TC',sans-serif;
     line-height:1.7;
     overflow-x:hidden;
     -webkit-font-smoothing:antialiased;
@@ -85,7 +89,7 @@
     max-width:920px;padding:0 32px;text-align:center;
   }
   .hero-eyebrow{
-    font-family:'Space Mono',monospace;font-size:12px;
+    font-family:'DM Sans',sans-serif;font-size:12px;
     letter-spacing:0.35em;color:var(--accent);
     text-transform:uppercase;margin-bottom:24px;font-weight:700;
     opacity:0;
@@ -109,7 +113,7 @@
   }
   .scroll-cue{
     position:absolute;bottom:36px;left:50%;transform:translateX(-50%);
-    font-family:'Space Mono',monospace;font-size:11px;
+    font-family:'DM Sans',sans-serif;font-size:11px;
     letter-spacing:0.25em;color:var(--muted);
     text-transform:uppercase;opacity:0;z-index:3;
   }
@@ -123,7 +127,7 @@
   section.s{padding:140px 32px;position:relative;}
   .container{max-width:1100px;margin:0 auto;position:relative;z-index:2;}
   .section-eyebrow{
-    font-family:'Space Mono',monospace;font-size:11px;
+    font-family:'DM Sans',sans-serif;font-size:11px;
     letter-spacing:0.28em;color:var(--accent);
     text-transform:uppercase;margin-bottom:18px;font-weight:700;
   }
@@ -178,7 +182,7 @@
     position:absolute;top:18px;left:18px;
     background:rgba(0,0,0,0.7);backdrop-filter:blur(8px);
     padding:6px 12px;border-radius:4px;
-    font-family:'Space Mono',monospace;font-size:10px;
+    font-family:'DM Sans',sans-serif;font-size:10px;
     letter-spacing:0.15em;color:var(--text);
     text-transform:uppercase;font-weight:700;
     z-index:2;
@@ -190,9 +194,9 @@
   a.station-link:hover{transform:translateY(-2px);}
   .play-cta{
     position:absolute;bottom:18px;left:18px;
-    background:rgba(168,208,0,0.95);color:#000;
+    background:rgba(124,255,178,0.95);color:#000;
     padding:10px 16px;border-radius:6px;
-    font-family:'Space Mono',monospace;font-size:12px;
+    font-family:'DM Sans',sans-serif;font-size:12px;
     letter-spacing:0.1em;font-weight:700;
     z-index:2;
     opacity:0;transform:translateY(8px);
@@ -221,7 +225,7 @@
     width:100%;height:100%;object-fit:cover;
   }
   .station-num{
-    font-family:'Space Mono',monospace;font-size:13px;
+    font-family:'DM Sans',sans-serif;font-size:13px;
     letter-spacing:0.3em;color:var(--accent);
     text-transform:uppercase;margin-bottom:14px;font-weight:700;
   }
@@ -233,7 +237,7 @@
   .station-course{
     display:inline-block;padding:10px 16px;border-radius:6px;
     background:var(--surface);border:1px solid var(--border-2);
-    font-family:'Space Mono',monospace;font-size:13px;
+    font-family:'DM Sans',sans-serif;font-size:13px;
     color:var(--accent);font-weight:700;letter-spacing:0.05em;
   }
   .mentor-inline{
@@ -245,7 +249,7 @@
   .mentor-inline strong{color:var(--mentor);}
   .mentor-inline .mentor-when{
     display:block;
-    font-family:'Space Mono',monospace;font-size:10px;
+    font-family:'DM Sans',sans-serif;font-size:10px;
     letter-spacing:0.18em;color:var(--mentor);
     text-transform:uppercase;font-weight:700;margin-bottom:6px;
   }
@@ -253,7 +257,7 @@
   /* ────── Live bridge（說明在上 + 場次卡整排橫向輪播在下）────── */
   .live-bridge{
     margin:60px auto;max-width:1040px;
-    background:linear-gradient(135deg,var(--surface),rgba(255,115,64,0.05));
+    background:linear-gradient(135deg,var(--surface),rgba(255,159,67,0.05));
     border:1px solid var(--accent2-bg);
     border-left:4px solid var(--accent2);
     border-radius:14px;padding:32px 0 28px;
@@ -261,7 +265,7 @@
   .live-intro{padding:0 36px;max-width:780px;}
   @media(max-width:780px){.live-bridge{padding:24px 0 20px;}.live-intro{padding:0 22px;}}
   .live-tag{
-    font-family:'Space Mono',monospace;font-size:11px;
+    font-family:'DM Sans',sans-serif;font-size:11px;
     letter-spacing:0.25em;color:var(--accent2);
     text-transform:uppercase;font-weight:700;margin-bottom:10px;display:inline-block;
   }
@@ -302,7 +306,7 @@
     padding:48px;
   }
   .outcome-text-label{
-    font-family:'Space Mono',monospace;font-size:11px;
+    font-family:'DM Sans',sans-serif;font-size:11px;
     letter-spacing:0.25em;color:var(--accent);
     text-transform:uppercase;font-weight:700;margin-bottom:14px;display:inline-block;
   }
@@ -323,7 +327,7 @@
   /* ────── Resources ────── */
   .mentor-journey{
     margin-top:64px;
-    background:linear-gradient(135deg,rgba(167,139,250,0.06),rgba(167,139,250,0.12));
+    background:linear-gradient(135deg,rgba(168,85,247,0.06),rgba(168,85,247,0.12));
     border:1px solid var(--mentor-bg);
     border-left:4px solid var(--mentor);
     border-radius:12px;padding:40px 36px;
@@ -338,7 +342,7 @@
     padding:18px 18px 20px;font-size:14px;color:var(--text-2);line-height:1.7;
   }
   .mentor-stop-when{
-    font-family:'Space Mono',monospace;font-size:10px;
+    font-family:'DM Sans',sans-serif;font-size:10px;
     letter-spacing:0.18em;color:var(--mentor);
     text-transform:uppercase;font-weight:700;margin-bottom:8px;
   }
@@ -365,21 +369,21 @@
   }
   .resource-content{padding:24px 26px;}
   .resource-label{
-    font-family:'Space Mono',monospace;font-size:10px;
+    font-family:'DM Sans',sans-serif;font-size:10px;
     letter-spacing:0.2em;color:var(--accent);
     text-transform:uppercase;font-weight:700;margin-bottom:12px;display:inline-block;
   }
   .resource-title{font-size:20px;color:var(--text);margin-bottom:10px;font-weight:900;}
   .resource-body{font-size:14.5px;color:var(--text-2);line-height:1.7;margin-bottom:10px;}
   .resource-where{
-    font-family:'Space Mono',monospace;font-size:11px;
+    font-family:'DM Sans',sans-serif;font-size:11px;
     color:var(--muted);letter-spacing:0.05em;
     padding-top:10px;border-top:1px dashed var(--border-2);
   }
   .resource-link{
     display:inline-block;margin-top:10px;padding-top:10px;
     border-top:1px dashed var(--border-2);width:100%;
-    font-family:'Space Mono',monospace;font-size:12px;
+    font-family:'DM Sans',sans-serif;font-size:12px;
     color:var(--accent);letter-spacing:0.05em;
     text-decoration:none;font-weight:700;
   }
@@ -391,7 +395,7 @@
     font-size:12.5px;color:var(--text-2);line-height:1.65;
   }
   .resource-qualify-label{
-    font-family:'Space Mono',monospace;font-size:10px;
+    font-family:'DM Sans',sans-serif;font-size:10px;
     letter-spacing:0.15em;color:var(--accent2);
     text-transform:uppercase;margin-bottom:4px;font-weight:700;
   }
@@ -423,7 +427,7 @@
     pointer-events:none;
   }
   .fde-eyebrow{
-    font-family:'Space Mono',monospace;font-size:12px;
+    font-family:'DM Sans',sans-serif;font-size:12px;
     letter-spacing:0.3em;color:var(--accent2);
     text-transform:uppercase;font-weight:700;margin-bottom:18px;display:inline-block;
   }
@@ -432,14 +436,14 @@
   .fde-lead-section strong{color:var(--accent2);}
 
   .fde-track{
-    background:linear-gradient(135deg,rgba(26,26,35,0.92),rgba(255,115,64,0.06));
+    background:linear-gradient(135deg,rgba(26,26,35,0.92),rgba(255,159,67,0.06));
     border:1px solid var(--accent2-bg);
     border-left:4px solid var(--accent2);
     border-radius:14px;padding:48px 40px;
     backdrop-filter:blur(14px);
   }
   .fde-label{
-    font-family:'Space Mono',monospace;font-size:11px;
+    font-family:'DM Sans',sans-serif;font-size:11px;
     letter-spacing:0.25em;color:var(--accent2);
     text-transform:uppercase;font-weight:700;margin-bottom:12px;display:inline-block;
   }
@@ -449,7 +453,7 @@
   .fde-grid{display:grid;grid-template-columns:1fr 1fr;gap:32px;}
   @media(max-width:780px){.fde-grid{grid-template-columns:1fr;gap:20px;}}
   .fde-col-label{
-    font-family:'Space Mono',monospace;font-size:11px;
+    font-family:'DM Sans',sans-serif;font-size:11px;
     letter-spacing:0.18em;color:var(--accent2);
     text-transform:uppercase;font-weight:700;margin-bottom:12px;
   }
@@ -502,7 +506,7 @@
   .align-card.orange::before{background:var(--accent2);}
   .align-card.mentor::before{background:var(--mentor);}
   .align-label{
-    font-family:'Space Mono',monospace;font-size:10px;
+    font-family:'DM Sans',sans-serif;font-size:10px;
     letter-spacing:0.2em;color:var(--accent);
     text-transform:uppercase;font-weight:700;margin-bottom:10px;display:inline-block;
   }
@@ -540,7 +544,7 @@
   .milestone:first-child{border-left:0;padding-left:0;}
   @media(max-width:880px){.milestone{border-left:0;padding-left:0;padding-top:16px;border-top:1px solid var(--border);} .milestone:first-child{border-top:0;padding-top:0;}}
   .milestone-when{
-    font-family:'Space Mono',monospace;font-size:11px;
+    font-family:'DM Sans',sans-serif;font-size:11px;
     letter-spacing:0.18em;color:var(--accent);
     text-transform:uppercase;font-weight:700;margin-bottom:10px;
   }
@@ -553,7 +557,7 @@
 
   /* AI 教練範圍 */
   .agent-scope{
-    margin-top:48px;background:linear-gradient(135deg,var(--surface),rgba(167,139,250,0.04));
+    margin-top:48px;background:linear-gradient(135deg,var(--surface),rgba(168,85,247,0.04));
     border:1px solid var(--mentor-bg);border-left:4px solid var(--mentor);
     border-radius:12px;padding:36px;
   }
@@ -562,7 +566,7 @@
   .agent-scope-grid{display:grid;grid-template-columns:1fr 1fr;gap:24px;}
   @media(max-width:780px){.agent-scope-grid{grid-template-columns:1fr;}}
   .agent-col-label{
-    font-family:'Space Mono',monospace;font-size:10px;
+    font-family:'DM Sans',sans-serif;font-size:10px;
     letter-spacing:0.18em;text-transform:uppercase;
     font-weight:700;margin-bottom:12px;
   }
@@ -605,22 +609,22 @@
   .line-header{
     position:relative;height:62px;padding:30px 16px 8px;
     background:linear-gradient(180deg,#1a2a18,#161620);
-    border-bottom:1px solid rgba(168,208,0,0.15);
+    border-bottom:1px solid rgba(124,255,178,0.15);
     display:flex;align-items:flex-end;gap:10px;
   }
   .line-avatar{
     width:34px;height:34px;border-radius:50%;flex-shrink:0;
-    background:linear-gradient(135deg,#a8d000,#7aa800);
+    background:linear-gradient(135deg,#7cffb2,#7aa800);
     display:flex;align-items:center;justify-content:center;
     font-size:14px;font-weight:900;color:#0a0a10;
-    box-shadow:0 0 0 2px rgba(168,208,0,0.2);
+    box-shadow:0 0 0 2px rgba(124,255,178,0.2);
   }
   .line-header-info{display:flex;flex-direction:column;line-height:1.2;}
   .line-header-name{font-size:13px;font-weight:700;color:var(--text);}
-  .line-header-status{font-size:10px;color:#a8d000;margin-top:2px;display:flex;align-items:center;gap:4px;}
+  .line-header-status{font-size:10px;color:#7cffb2;margin-top:2px;display:flex;align-items:center;gap:4px;}
   .line-header-status::before{
     content:'';display:inline-block;width:6px;height:6px;border-radius:50%;
-    background:#a8d000;box-shadow:0 0 6px #a8d000;
+    background:#7cffb2;box-shadow:0 0 6px #7cffb2;
   }
   .line-chat{
     height:calc(100% - 62px);padding:16px 12px;overflow:hidden;
@@ -636,15 +640,15 @@
     border-bottom-left-radius:4px;
   }
   .line-msg.user{
-    align-self:flex-end;background:#a8d000;color:#0a0a10;font-weight:600;
+    align-self:flex-end;background:#7cffb2;color:#0a0a10;font-weight:600;
     border-bottom-right-radius:4px;
   }
   .line-msg ol,.line-msg ul{margin:6px 0 0 18px;padding:0;}
   .line-msg li{margin:2px 0;font-size:11px;}
   .line-msg .resource-link{
     display:inline-block;margin-top:4px;padding:4px 8px;
-    background:rgba(168,208,0,0.12);border:1px solid rgba(168,208,0,0.3);
-    border-radius:8px;color:#a8d000;font-size:10.5px;font-weight:700;
+    background:rgba(124,255,178,0.12);border:1px solid rgba(124,255,178,0.3);
+    border-radius:8px;color:#7cffb2;font-size:10.5px;font-weight:700;
   }
   /* 18s cycle，每則訊息 fade in 後 hold 到尾端再一起重置 */
   .line-msg.m1{animation:lineMsg1 18s ease infinite;}
@@ -663,8 +667,8 @@
   /* ────── 行政助教 callout (LINE bot 不會做的事，由真人助教接手) ────── */
   .assistant-note{
     margin-top:32px;padding:20px 24px;
-    background:linear-gradient(135deg,rgba(255,115,64,0.08),rgba(255,115,64,0.02));
-    border:1px solid rgba(255,115,64,0.25);border-left:3px solid var(--accent2);
+    background:linear-gradient(135deg,rgba(255,159,67,0.08),rgba(255,159,67,0.02));
+    border:1px solid rgba(255,159,67,0.25);border-left:3px solid var(--accent2);
     border-radius:10px;display:flex;gap:16px;align-items:flex-start;
   }
   .assistant-note-icon{
@@ -716,7 +720,7 @@
   .mock-url-bar{
     margin-left:10px;flex:1;height:13px;background:#1c1c25;border-radius:3px;
     display:flex;align-items:center;padding:0 8px;
-    font-family:'Space Mono',monospace;font-size:8px;color:#6a6a7a;letter-spacing:0.03em;
+    font-family:'DM Sans',sans-serif;font-size:8px;color:#6a6a7a;letter-spacing:0.03em;
   }
   /* Mockup layouts (per-product) */
   .mock-app{display:flex;height:calc(100% - 22px);}
@@ -736,7 +740,7 @@
     color:#8a8a98;margin-bottom:2px;
     font-size:9px;
   }
-  .mock-nav-item.active{background:rgba(168,208,0,0.12);color:var(--accent);}
+  .mock-nav-item.active{background:rgba(124,255,178,0.12);color:var(--accent);}
   .mock-nav-item span.ico{
     width:9px;height:9px;background:currentColor;opacity:0.5;border-radius:2px;
     flex-shrink:0;
@@ -787,15 +791,15 @@
     display:inline-block;padding:1px 5px;border-radius:2px;
     font-size:7px;font-weight:700;text-transform:uppercase;letter-spacing:0.05em;
   }
-  .badge-green{background:rgba(168,208,0,0.15);color:var(--accent);}
-  .badge-orange{background:rgba(255,115,64,0.15);color:var(--accent2);}
-  .badge-mentor{background:rgba(167,139,250,0.15);color:var(--mentor);}
+  .badge-green{background:rgba(124,255,178,0.15);color:var(--accent);}
+  .badge-orange{background:rgba(255,159,67,0.15);color:var(--accent2);}
+  .badge-mentor{background:rgba(168,85,247,0.15);color:var(--mentor);}
 
   /* Watermark */
   .mock-watermark{
     position:absolute;bottom:6px;right:10px;z-index:2;
-    font-family:'Space Mono',monospace;font-size:8px;
-    color:rgba(168,208,0,0.45);font-weight:700;
+    font-family:'DM Sans',sans-serif;font-size:8px;
+    color:rgba(124,255,178,0.45);font-weight:700;
     letter-spacing:0.15em;text-transform:uppercase;
     background:rgba(0,0,0,0.5);padding:2px 6px;border-radius:2px;
     backdrop-filter:blur(4px);
@@ -804,7 +808,7 @@
   /* Public landing variant */
   .mock-hero{padding:14px;height:calc(100% - 22px);background:linear-gradient(180deg,#16161e,#0f0f15);}
   .mock-hero-eyebrow{
-    font-family:'Space Mono',monospace;font-size:7px;letter-spacing:0.2em;
+    font-family:'DM Sans',sans-serif;font-size:7px;letter-spacing:0.2em;
     color:var(--accent);text-transform:uppercase;font-weight:700;margin-bottom:6px;
   }
   .mock-hero-h{font-size:15px;font-weight:900;color:#f5f5f7;margin-bottom:6px;line-height:1.3;}
@@ -815,7 +819,7 @@
     border-radius:3px;padding:6px 7px;
   }
   .mock-event-type{
-    font-family:'Space Mono',monospace;font-size:6.5px;letter-spacing:0.12em;
+    font-family:'DM Sans',sans-serif;font-size:6.5px;letter-spacing:0.12em;
     color:var(--accent2);text-transform:uppercase;font-weight:700;
   }
   .mock-event-type.lime{color:var(--accent);}
@@ -836,7 +840,7 @@
     padding:5px;border-bottom:1px solid rgba(255,255,255,0.04);
     font-size:8px;
   }
-  .mock-crm-item.active{background:rgba(168,208,0,0.06);border-left:2px solid var(--accent);}
+  .mock-crm-item.active{background:rgba(124,255,178,0.06);border-left:2px solid var(--accent);}
   .mock-crm-name{color:#f5f5f7;font-weight:700;}
   .mock-crm-prev{color:#8a8a98;font-size:7px;margin-top:2px;}
   .mock-msg{
@@ -848,7 +852,7 @@
 
   .showcase-content{padding:24px 26px;}
   .showcase-label{
-    font-family:'Space Mono',monospace;font-size:10px;
+    font-family:'DM Sans',sans-serif;font-size:10px;
     letter-spacing:0.2em;color:var(--accent);
     text-transform:uppercase;font-weight:700;margin-bottom:10px;display:inline-block;
   }
@@ -856,7 +860,7 @@
   .showcase-body{font-size:14px;color:var(--text-2);line-height:1.7;}
   .showcase-tag{
     display:inline-block;margin-top:14px;
-    font-family:'Space Mono',monospace;font-size:11px;
+    font-family:'DM Sans',sans-serif;font-size:11px;
     color:var(--muted);letter-spacing:0.05em;
     padding:6px 10px;border:1px dashed var(--border-2);border-radius:4px;
   }
@@ -924,7 +928,7 @@
   .demo-card:hover .demo-play-overlay{background:linear-gradient(180deg,rgba(0,0,0,0.2) 0%,rgba(0,0,0,0.7) 100%);}
   .demo-play-btn{
     width:64px;height:64px;border-radius:50%;
-    background:rgba(168,208,0,0.95);color:#000;
+    background:rgba(124,255,178,0.95);color:#000;
     display:flex;align-items:center;justify-content:center;
     font-size:24px;font-weight:900;
     box-shadow:0 12px 32px rgba(0,0,0,0.5);
@@ -933,7 +937,7 @@
   .demo-card:hover .demo-play-btn{transform:scale(1.1);}
   .demo-content{padding:24px 26px;}
   .demo-label{
-    font-family:'Space Mono',monospace;font-size:10px;
+    font-family:'DM Sans',sans-serif;font-size:10px;
     letter-spacing:0.2em;color:var(--accent);
     text-transform:uppercase;font-weight:700;margin-bottom:10px;display:inline-block;
   }
@@ -941,7 +945,7 @@
   .demo-body{font-size:14px;color:var(--text-2);line-height:1.65;margin-bottom:14px;}
   .demo-link{
     display:inline-block;
-    font-family:'Space Mono',monospace;font-size:12px;
+    font-family:'DM Sans',sans-serif;font-size:12px;
     color:var(--accent);letter-spacing:0.05em;
     text-decoration:none;font-weight:700;
     padding-top:10px;border-top:1px dashed var(--border-2);
@@ -972,7 +976,7 @@
   /* ────── Footer ────── */
   footer{
     padding:48px 32px;text-align:center;
-    font-family:'Space Mono',monospace;font-size:11px;
+    font-family:'DM Sans',sans-serif;font-size:11px;
     color:var(--muted);letter-spacing:0.18em;
     background:#000;border-top:1px solid var(--border);
   }
@@ -1519,8 +1523,8 @@
               <div class="mock-chart-box">
                 <div class="mock-chart-h">過去 24 小時對話量</div>
                 <svg class="mock-chart-svg" viewBox="0 0 200 30" preserveAspectRatio="none">
-                  <polyline fill="none" stroke="#a8d000" stroke-width="1.2" points="0,22 14,18 28,20 42,12 56,15 70,8 84,11 98,5 112,9 126,4 140,7 154,10 168,6 182,9 196,5"/>
-                  <polyline fill="rgba(168,208,0,0.15)" stroke="none" points="0,22 14,18 28,20 42,12 56,15 70,8 84,11 98,5 112,9 126,4 140,7 154,10 168,6 182,9 196,5 196,30 0,30"/>
+                  <polyline fill="none" stroke="#7cffb2" stroke-width="1.2" points="0,22 14,18 28,20 42,12 56,15 70,8 84,11 98,5 112,9 126,4 140,7 154,10 168,6 182,9 196,5"/>
+                  <polyline fill="rgba(124,255,178,0.15)" stroke="none" points="0,22 14,18 28,20 42,12 56,15 70,8 84,11 98,5 112,9 126,4 140,7 154,10 168,6 182,9 196,5 196,30 0,30"/>
                 </svg>
               </div>
             </div>
