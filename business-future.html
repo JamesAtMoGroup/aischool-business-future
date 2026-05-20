@@ -56,6 +56,25 @@
   /* 防 flex item min-width:auto 被內部 max-content carousel 撐爆（手機爆版根因）*/
   .live-bridge,.station,.stations,.live-intro{min-width:0;}
   .live-schedule,.ig-carousel{min-width:0;max-width:100%;}
+  /* Navbar + logo（對齊官網 index.html）*/
+  .site-nav{
+    position:fixed;top:0;left:0;right:0;z-index:900;
+    display:flex;align-items:center;justify-content:space-between;
+    padding:0 5%;height:68px;
+    background:rgba(9,9,15,0.82);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);
+    border-bottom:1px solid var(--border);
+  }
+  .site-nav .logo{
+    font-family:'Syne',sans-serif;font-weight:800;font-size:1.3rem;
+    color:var(--text);text-decoration:none;letter-spacing:-0.01em;
+  }
+  .site-nav .logo span{color:var(--accent);}
+  .site-nav .nav-cta{
+    font-family:'DM Sans',sans-serif;font-size:0.85rem;font-weight:500;
+    color:var(--text-2);text-decoration:none;transition:color 0.25s ease;
+  }
+  .site-nav .nav-cta:hover{color:var(--accent);}
+  @media(max-width:600px){.site-nav{height:58px;padding:0 5%;}.site-nav .logo{font-size:1.15rem;}}
   /* 標題用 Syne（對齊官網主視覺），中文 fallback Noto Sans TC */
   h1,h2,h3,h4,.station-title,.live-title,.fde-h2,.closing-line,.mock-h,.mock-hero-h,.outcome h2,.ending h3{
     font-family:'Syne','Noto Sans TC',sans-serif;
@@ -1001,6 +1020,11 @@
 </style>
 </head>
 <body>
+
+<nav class="site-nav">
+  <a href="https://aischool.kolable.app/" class="logo">AI <span>未來學院</span></a>
+  <a href="https://aischool.kolable.app/" class="nav-cta" target="_blank" rel="noopener">前往學員後台 →</a>
+</nav>
 
 <!-- HERO 9 影片 (James 指定的 6 個 IMG_* + 3 個 DJI 補充廣角) -->
 <section class="hero">
