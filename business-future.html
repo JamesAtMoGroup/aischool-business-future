@@ -444,8 +444,8 @@
   .fde-bg-grid{
     position:absolute;inset:0;width:100%;height:100%;
     z-index:0;display:grid;
-    grid-template-columns:repeat(4,1fr);
-    grid-template-rows:repeat(4,1fr);
+    grid-template-columns:repeat(3,1fr);
+    grid-template-rows:repeat(2,1fr);
     gap:2px;
     opacity:0.28;
     will-change:transform;
@@ -1080,21 +1080,21 @@
   <!-- #1 IMG_8607 整教室全景 (active) -->
   <video class="hero-video active" autoplay muted loop playsinline preload="metadata"><source src="assets/hero_classroom.mp4" type="video/mp4"></video>
   <!-- #2 IMG_8615 學員聽課 -->
-  <video class="hero-video" autoplay muted loop playsinline preload="metadata"><source src="assets/fde_c.mp4" type="video/mp4"></video>
+  <video class="hero-video" muted loop playsinline preload="metadata"><source src="assets/fde_c.mp4" type="video/mp4"></video>
   <!-- #3 dji_0050 廣角學員聽課多人 -->
-  <video class="hero-video" autoplay muted loop playsinline preload="metadata"><source src="assets/dji_0050.mp4" type="video/mp4"></video>
+  <video class="hero-video" muted loop playsinline preload="metadata"><source src="assets/dji_0050.mp4" type="video/mp4"></video>
   <!-- #4 IMG_8613 業師拿麥克風指導 -->
-  <video class="hero-video" autoplay muted loop playsinline preload="metadata"><source src="assets/fde_d.mp4" type="video/mp4"></video>
+  <video class="hero-video" muted loop playsinline preload="metadata"><source src="assets/fde_d.mp4" type="video/mp4"></video>
   <!-- #5 IMG_8616 n8n + 業師指導學員 -->
-  <video class="hero-video" autoplay muted loop playsinline preload="metadata"><source src="assets/step2_practice.mp4" type="video/mp4"></video>
+  <video class="hero-video" muted loop playsinline preload="metadata"><source src="assets/step2_practice.mp4" type="video/mp4"></video>
   <!-- #6 IMG_8614 兩學員背影打筆電 -->
-  <video class="hero-video" autoplay muted loop playsinline preload="metadata"><source src="assets/fde_k.mp4" type="video/mp4"></video>
+  <video class="hero-video" muted loop playsinline preload="metadata"><source src="assets/fde_k.mp4" type="video/mp4"></video>
   <!-- #7 IMG_8611 學員手機+筆電 -->
-  <video class="hero-video" autoplay muted loop playsinline preload="metadata"><source src="assets/fde_g.mp4" type="video/mp4"></video>
+  <video class="hero-video" muted loop playsinline preload="metadata"><source src="assets/fde_g.mp4" type="video/mp4"></video>
   <!-- #8 dji_0061 廣角多人聽課 -->
-  <video class="hero-video" autoplay muted loop playsinline preload="metadata"><source src="assets/dji_0061.mp4" type="video/mp4"></video>
+  <video class="hero-video" muted loop playsinline preload="metadata"><source src="assets/dji_0061.mp4" type="video/mp4"></video>
   <!-- #9 IMG_8610 教室全景 -->
-  <video class="hero-video" autoplay muted loop playsinline preload="metadata"><source src="assets/fde_b.mp4" type="video/mp4"></video>
+  <video class="hero-video" muted loop playsinline preload="metadata"><source src="assets/fde_b.mp4" type="video/mp4"></video>
   <div class="hero-veil"></div>
   <div class="hero-inner">
     <div class="hero-eyebrow">AI 未來學院 · 學員旅程</div>
@@ -1365,20 +1365,10 @@
   <div class="fde-bg-grid">
     <video autoplay muted loop playsinline preload="metadata"><source src="assets/hero_classroom.mp4" type="video/mp4"></video>
     <video autoplay muted loop playsinline preload="metadata"><source src="assets/fde_j.mp4" type="video/mp4"></video>
-    <video autoplay muted loop playsinline preload="metadata"><source src="assets/dji_0042.mp4" type="video/mp4"></video>
     <video autoplay muted loop playsinline preload="metadata"><source src="assets/fde_b.mp4" type="video/mp4"></video>
-    <video autoplay muted loop playsinline preload="metadata"><source src="assets/dji_0043.mp4" type="video/mp4"></video>
     <video autoplay muted loop playsinline preload="metadata"><source src="assets/fde_d.mp4" type="video/mp4"></video>
-    <video autoplay muted loop playsinline preload="metadata"><source src="assets/dji_0050.mp4" type="video/mp4"></video>
-    <video autoplay muted loop playsinline preload="metadata"><source src="assets/fde_l.mp4" type="video/mp4"></video>
     <video autoplay muted loop playsinline preload="metadata"><source src="assets/mentor_session.mp4" type="video/mp4"></video>
-    <video autoplay muted loop playsinline preload="metadata"><source src="assets/dji_0047.mp4" type="video/mp4"></video>
-    <video autoplay muted loop playsinline preload="metadata"><source src="assets/fde_e.mp4" type="video/mp4"></video>
-    <video autoplay muted loop playsinline preload="metadata"><source src="assets/dji_0048.mp4" type="video/mp4"></video>
-    <video autoplay muted loop playsinline preload="metadata"><source src="assets/fde_m.mp4" type="video/mp4"></video>
-    <video autoplay muted loop playsinline preload="metadata"><source src="assets/fde_n.mp4" type="video/mp4"></video>
     <video autoplay muted loop playsinline preload="metadata"><source src="assets/fde_f.mp4" type="video/mp4"></video>
-    <video autoplay muted loop playsinline preload="metadata"><source src="assets/dji_0066.mp4" type="video/mp4"></video>
   </div>
   <div class="fde-veil"></div>
   <div class="container">
@@ -1842,11 +1832,15 @@
   // Hero video crossfade carousel (faster: every 3s + 1.5x playback speed)
   const heroVideos = document.querySelectorAll('.hero-video');
   heroVideos.forEach(v => { v.playbackRate = 1.5; });
+  if (heroVideos[0]) heroVideos[0].play().catch(()=>{});
   let heroIdx = 0;
   setInterval(() => {
     heroVideos[heroIdx].classList.remove('active');
     heroIdx = (heroIdx + 1) % heroVideos.length;
-    heroVideos[heroIdx].classList.add('active');
+    const next = heroVideos[heroIdx];
+    next.classList.add('active');
+    // 切到才載入+播（非 active 沒 autoplay，首屏只載第 1 支）
+    next.play().catch(()=>{});
   }, 3000);
 
   // Hero video subtle parallax
