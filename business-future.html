@@ -1066,7 +1066,7 @@
       <div class="station fade-up">
         <div>
           <div class="station-media media-16-9">
-            <video controls autoplay muted loop playsinline preload="metadata">
+            <video controls playsinline preload="metadata" data-no-auto>
               <source src="assets/daily_knowledge.mp4" type="video/mp4">
             </video>
             <div class="frame-tag">每日 5 分鐘</div>
@@ -1822,7 +1822,8 @@
   // 整頁有 ~45 個 video element，同時 autoplay 超過 Chrome 限制部分會黑屏。
   // 用 IntersectionObserver 只播 viewport 內的 video，離開就 pause + 釋放 decoder。
   (() => {
-    const videos = document.querySelectorAll('video');
+    // data-no-auto 的 video（如每日 demo 有聲影片）排除，交給使用者手動播放
+    const videos = document.querySelectorAll('video:not([data-no-auto])');
     if (!videos.length || !('IntersectionObserver' in window)) return;
 
     const io = new IntersectionObserver((entries) => {
