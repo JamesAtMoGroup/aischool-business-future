@@ -247,21 +247,16 @@
     text-transform:uppercase;font-weight:700;margin-bottom:6px;
   }
 
-  /* ────── Live bridge ────── */
+  /* ────── Live bridge（說明在上 + 場次卡整排橫向輪播在下）────── */
   .live-bridge{
-    margin:60px auto;max-width:920px;
-    display:grid;grid-template-columns:1fr 1fr;gap:36px;align-items:center;
-    background:linear-gradient(135deg,var(--surface),rgba(255,115,64,0.06));
+    margin:60px auto;max-width:1040px;
+    background:linear-gradient(135deg,var(--surface),rgba(255,115,64,0.05));
     border:1px solid var(--accent2-bg);
     border-left:4px solid var(--accent2);
-    border-radius:14px;padding:36px;
+    border-radius:14px;padding:32px 0 28px;
   }
-  @media(max-width:780px){.live-bridge{grid-template-columns:1fr;gap:20px;padding:28px;}}
-  .live-img{
-    position:relative;border-radius:10px;overflow:hidden;
-    aspect-ratio:16/9;
-  }
-  .live-img img,.live-img video{width:100%;height:100%;object-fit:cover;display:block;}
+  .live-intro{padding:0 36px;max-width:780px;}
+  @media(max-width:780px){.live-bridge{padding:24px 0 20px;}.live-intro{padding:0 22px;}}
   .live-tag{
     font-family:'Space Mono',monospace;font-size:11px;
     letter-spacing:0.25em;color:var(--accent2);
@@ -271,40 +266,25 @@
   .live-body{font-size:15px;color:var(--text-2);line-height:1.75;}
   .live-body strong{color:var(--accent2);}
 
-  /* 直播場次橫向 carousel（右→左輪播，傳達「好多場次」）*/
+  /* 場次卡整排橫向 carousel（右→左輪播，無容器框）*/
   .live-schedule{
-    position:relative;border-radius:10px;overflow:hidden;
-    background:linear-gradient(160deg,#16161e,#0d0d13);
-    border:1px solid var(--border);display:flex;flex-direction:column;
-  }
-  .live-schedule-head{
-    display:flex;align-items:center;gap:8px;flex-shrink:0;
-    padding:12px 14px;border-bottom:1px solid var(--border);
-    background:rgba(255,115,64,0.07);
-    font-size:12px;font-weight:800;color:var(--text);letter-spacing:0.02em;
-  }
-  .live-dot{
-    width:8px;height:8px;border-radius:50%;background:#ff3b30;flex-shrink:0;
-    box-shadow:0 0 8px #ff3b30;animation:livePulse 1.4s ease infinite;
-  }
-  @keyframes livePulse{0%,100%{opacity:1;}50%{opacity:0.25;}}
-  .live-schedule-count{margin-left:auto;font-size:10px;color:var(--accent2);font-weight:700;}
-  .live-schedule-viewport{
-    position:relative;overflow:hidden;padding:14px 0;
-    -webkit-mask-image:linear-gradient(90deg,transparent,#000 7%,#000 93%,transparent);
-    mask-image:linear-gradient(90deg,transparent,#000 7%,#000 93%,transparent);
+    margin-top:26px;position:relative;overflow:hidden;
+    -webkit-mask-image:linear-gradient(90deg,transparent,#000 4%,#000 96%,transparent);
+    mask-image:linear-gradient(90deg,transparent,#000 4%,#000 96%,transparent);
   }
   .live-schedule-track{
-    display:flex;flex-direction:row;gap:12px;width:max-content;
-    padding:0 12px;animation:liveScroll 36s linear infinite;
+    display:flex;flex-direction:row;gap:16px;width:max-content;
+    padding:0 36px;animation:liveScroll 45s linear infinite;
   }
   @keyframes liveScroll{from{transform:translateX(0);}to{transform:translateX(-50%);}}
   .live-schedule:hover .live-schedule-track{animation-play-state:paused;}
   .live-event{
-    display:flex;flex-direction:column;align-items:flex-start;gap:10px;flex-shrink:0;
-    width:208px;padding:14px;border-radius:10px;
+    display:flex;flex-direction:column;align-items:flex-start;gap:12px;flex-shrink:0;
+    width:248px;padding:18px;border-radius:12px;
     background:var(--surface);border:1px solid var(--border);
+    transition:transform 0.25s ease,border-color 0.25s ease;
   }
+  .live-event:hover{transform:translateY(-4px);border-color:var(--accent2);}
   .live-event-badge{
     flex-shrink:0;font-size:9px;font-weight:900;letter-spacing:0.06em;
     color:#fff;background:#ff3b30;border-radius:5px;padding:4px 8px;text-align:center;
@@ -312,7 +292,7 @@
   .live-event-badge.replay{background:rgba(255,115,64,0.18);color:var(--accent2);}
   .live-event-badge.master{background:rgba(168,208,0,0.18);color:var(--accent);}
   .live-event-info{min-width:0;}
-  .live-event-title{font-size:13px;font-weight:700;color:var(--text);line-height:1.4;}
+  .live-event-title{font-size:14px;font-weight:700;color:var(--text);line-height:1.45;}
   .live-event-meta{font-size:10.5px;color:var(--text-3);margin-top:6px;}
 
   /* ────── Outcome ────── */
@@ -1109,14 +1089,14 @@
 
       <!-- Live bridge: 每週實戰直播（場次輪播動畫，取代原影片）-->
       <div class="live-bridge fade-up">
+        <div class="live-intro">
+          <div class="live-tag">每週一場 · 直播 + 回放</div>
+          <div class="live-title">每週實戰直播</div>
+          <div class="live-body">每週一場線上直播，看講師現場做出 AI 作品，<strong>學員可以即時問問題、看出卡點怎麼解</strong>。從 AI 寫程式工具、接案心理學到 RAG / Agentic AI — <strong>主題每週更新，錯過還有回放</strong>。看完別人做，就更知道自己要做什麼。</div>
+        </div>
         <div class="live-schedule" aria-label="近期直播場次輪播">
-          <div class="live-schedule-head">
-            <span class="live-dot"></span>近期直播場次
-            <span class="live-schedule-count">每週更新</span>
-          </div>
-          <div class="live-schedule-viewport">
-            <div class="live-schedule-track">
-              <!-- 真實場次（James 2026-05-20 提供；複製兩份做無縫輪播）-->
+          <div class="live-schedule-track">
+            <!-- 真實場次（James 2026-05-20 提供；複製兩份做無縫輪播）-->
               <div class="live-event"><div class="live-event-badge">LIVE</div><div class="live-event-info"><div class="live-event-title">本地端的終端代理：Claude Code &amp; Gemini CLI</div><div class="live-event-meta">今晚 · 05/20(三) 20:00</div></div></div>
               <div class="live-event"><div class="live-event-badge master">即將</div><div class="live-event-info"><div class="live-event-title">不吃虧接案心理學</div><div class="live-event-meta">05/25(一) 19:30</div></div></div>
               <div class="live-event"><div class="live-event-badge master">即將</div><div class="live-event-info"><div class="live-event-title">OpenClaw 安裝到啟用 — 打造專屬 AI 助手</div><div class="live-event-meta">05/27(三) 20:00</div></div></div>
@@ -1133,12 +1113,6 @@
               <div class="live-event" aria-hidden="true"><div class="live-event-badge master">即將</div><div class="live-event-info"><div class="live-event-title">影像價值學</div><div class="live-event-meta">06/02(二) 19:30</div></div></div>
               <div class="live-event" aria-hidden="true"><div class="live-event-badge replay">回放</div><div class="live-event-info"><div class="live-event-title">不懂程式也能玩！好上手的 Codex &amp; Replit</div><div class="live-event-meta">05/13(三) · 可重播</div></div></div>
             </div>
-          </div>
-        </div>
-        <div>
-          <div class="live-tag">每週一場 · 直播 + 回放</div>
-          <div class="live-title">每週實戰直播</div>
-          <div class="live-body">每週一場線上直播，看講師現場做出 AI 作品，<strong>學員可以即時問問題、看出卡點怎麼解</strong>。從 AI 寫程式工具、接案心理學到 RAG / Agentic AI — <strong>主題每週更新，錯過還有回放</strong>。看完別人做，就更知道自己要做什麼。</div>
         </div>
       </div>
 
