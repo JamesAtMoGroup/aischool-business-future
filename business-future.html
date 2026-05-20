@@ -271,6 +271,50 @@
   .live-body{font-size:15px;color:var(--text-2);line-height:1.75;}
   .live-body strong{color:var(--accent2);}
 
+  /* 直播場次輪播動畫（取代原影片，傳達「好多場次」）*/
+  .live-schedule{
+    position:relative;border-radius:10px;overflow:hidden;height:320px;
+    background:linear-gradient(160deg,#16161e,#0d0d13);
+    border:1px solid var(--border);display:flex;flex-direction:column;
+  }
+  .live-schedule-head{
+    display:flex;align-items:center;gap:8px;flex-shrink:0;
+    padding:12px 14px;border-bottom:1px solid var(--border);
+    background:rgba(255,115,64,0.07);
+    font-size:12px;font-weight:800;color:var(--text);letter-spacing:0.02em;
+  }
+  .live-dot{
+    width:8px;height:8px;border-radius:50%;background:#ff3b30;flex-shrink:0;
+    box-shadow:0 0 8px #ff3b30;animation:livePulse 1.4s ease infinite;
+  }
+  @keyframes livePulse{0%,100%{opacity:1;}50%{opacity:0.25;}}
+  .live-schedule-count{margin-left:auto;font-size:10px;color:var(--accent2);font-weight:700;}
+  .live-schedule-viewport{
+    position:relative;flex:1;overflow:hidden;
+    -webkit-mask-image:linear-gradient(180deg,transparent,#000 10%,#000 90%,transparent);
+    mask-image:linear-gradient(180deg,transparent,#000 10%,#000 90%,transparent);
+  }
+  .live-schedule-track{
+    display:flex;flex-direction:column;gap:8px;padding:10px 12px;
+    animation:liveScroll 22s linear infinite;
+  }
+  @keyframes liveScroll{from{transform:translateY(0);}to{transform:translateY(-50%);}}
+  .live-schedule:hover .live-schedule-track{animation-play-state:paused;}
+  .live-event{
+    display:flex;align-items:center;gap:10px;flex-shrink:0;
+    padding:9px 11px;border-radius:9px;
+    background:var(--surface);border:1px solid var(--border);
+  }
+  .live-event-badge{
+    flex-shrink:0;font-size:9px;font-weight:900;letter-spacing:0.06em;
+    color:#fff;background:#ff3b30;border-radius:5px;padding:4px 7px;min-width:34px;text-align:center;
+  }
+  .live-event-badge.replay{background:rgba(255,115,64,0.18);color:var(--accent2);}
+  .live-event-badge.master{background:rgba(168,208,0,0.18);color:var(--accent);}
+  .live-event-info{min-width:0;}
+  .live-event-title{font-size:12.5px;font-weight:700;color:var(--text);line-height:1.35;}
+  .live-event-meta{font-size:10.5px;color:var(--text-3);margin-top:2px;}
+
   /* ────── Outcome ────── */
   .outcome{
     position:relative;background:linear-gradient(180deg,var(--bg),#161620,var(--bg));
@@ -1063,17 +1107,40 @@
         </div>
       </div>
 
-      <!-- Live bridge: 每週實戰直播 -->
+      <!-- Live bridge: 每週實戰直播（場次輪播動畫，取代原影片）-->
       <div class="live-bridge fade-up">
-        <div class="live-img">
-          <video autoplay muted loop playsinline preload="metadata">
-            <source src="assets/live_codex.mp4" type="video/mp4">
-          </video>
+        <div class="live-schedule" aria-label="近期直播場次輪播">
+          <div class="live-schedule-head">
+            <span class="live-dot"></span>近期直播場次
+            <span class="live-schedule-count">每週更新</span>
+          </div>
+          <div class="live-schedule-viewport">
+            <div class="live-schedule-track">
+              <!-- 一組場次（複製兩份做無縫輪播）-->
+              <div class="live-event"><div class="live-event-badge">LIVE</div><div class="live-event-info"><div class="live-event-title">用 AI 一小時做出個人作品集網站</div><div class="live-event-meta">實戰直播 · 今晚 20:00</div></div></div>
+              <div class="live-event"><div class="live-event-badge replay">回放</div><div class="live-event-info"><div class="live-event-title">ChatGPT 沒人教的 20 個隱藏用法</div><div class="live-event-meta">實戰直播 · 可重播</div></div></div>
+              <div class="live-event"><div class="live-event-badge master">講堂</div><div class="live-event-info"><div class="live-event-title">企業導入 AI 的真實案例拆解</div><div class="live-event-meta">大師講堂 · 週三 20:00</div></div></div>
+              <div class="live-event"><div class="live-event-badge replay">回放</div><div class="live-event-info"><div class="live-event-title">用 n8n 自動整理爆滿的 Gmail 收件匣</div><div class="live-event-meta">實戰直播 · 可重播</div></div></div>
+              <div class="live-event"><div class="live-event-badge replay">回放</div><div class="live-event-info"><div class="live-event-title">Claude 寫程式：從零做一個小工具</div><div class="live-event-meta">實戰直播 · 可重播</div></div></div>
+              <div class="live-event"><div class="live-event-badge master">講堂</div><div class="live-event-info"><div class="live-event-title">AI 如何改變零售業 — 業界主管開講</div><div class="live-event-meta">大師講堂 · 可重播</div></div></div>
+              <div class="live-event"><div class="live-event-badge replay">回放</div><div class="live-event-info"><div class="live-event-title">AI 圖像生成：商用級海報這樣做</div><div class="live-event-meta">實戰直播 · 可重播</div></div></div>
+              <div class="live-event"><div class="live-event-badge replay">回放</div><div class="live-event-info"><div class="live-event-title">做一個會自動回覆的 LINE 機器人</div><div class="live-event-meta">實戰直播 · 可重播</div></div></div>
+              <!-- 複製份 -->
+              <div class="live-event" aria-hidden="true"><div class="live-event-badge">LIVE</div><div class="live-event-info"><div class="live-event-title">用 AI 一小時做出個人作品集網站</div><div class="live-event-meta">實戰直播 · 今晚 20:00</div></div></div>
+              <div class="live-event" aria-hidden="true"><div class="live-event-badge replay">回放</div><div class="live-event-info"><div class="live-event-title">ChatGPT 沒人教的 20 個隱藏用法</div><div class="live-event-meta">實戰直播 · 可重播</div></div></div>
+              <div class="live-event" aria-hidden="true"><div class="live-event-badge master">講堂</div><div class="live-event-info"><div class="live-event-title">企業導入 AI 的真實案例拆解</div><div class="live-event-meta">大師講堂 · 週三 20:00</div></div></div>
+              <div class="live-event" aria-hidden="true"><div class="live-event-badge replay">回放</div><div class="live-event-info"><div class="live-event-title">用 n8n 自動整理爆滿的 Gmail 收件匣</div><div class="live-event-meta">實戰直播 · 可重播</div></div></div>
+              <div class="live-event" aria-hidden="true"><div class="live-event-badge replay">回放</div><div class="live-event-info"><div class="live-event-title">Claude 寫程式：從零做一個小工具</div><div class="live-event-meta">實戰直播 · 可重播</div></div></div>
+              <div class="live-event" aria-hidden="true"><div class="live-event-badge master">講堂</div><div class="live-event-info"><div class="live-event-title">AI 如何改變零售業 — 業界主管開講</div><div class="live-event-meta">大師講堂 · 可重播</div></div></div>
+              <div class="live-event" aria-hidden="true"><div class="live-event-badge replay">回放</div><div class="live-event-info"><div class="live-event-title">AI 圖像生成：商用級海報這樣做</div><div class="live-event-meta">實戰直播 · 可重播</div></div></div>
+              <div class="live-event" aria-hidden="true"><div class="live-event-badge replay">回放</div><div class="live-event-info"><div class="live-event-title">做一個會自動回覆的 LINE 機器人</div><div class="live-event-meta">實戰直播 · 可重播</div></div></div>
+            </div>
+          </div>
         </div>
         <div>
           <div class="live-tag">每週一場 · 直播 + 回放</div>
           <div class="live-title">每週實戰直播</div>
-          <div class="live-body">每週一場線上直播，看講師現場做出 AI 作品，<strong>學員可以即時問問題、看出卡點怎麼解</strong>。介於實戰跟落地之間的橋樑 — 看完別人做，就更知道自己要做什麼。</div>
+          <div class="live-body">每週一場線上直播，看講師現場做出 AI 作品，<strong>學員可以即時問問題、看出卡點怎麼解</strong>。從個人網站、自動化工作流到 LINE 機器人 — <strong>主題每週更新，錯過還有回放</strong>。看完別人做，就更知道自己要做什麼。</div>
         </div>
       </div>
 
