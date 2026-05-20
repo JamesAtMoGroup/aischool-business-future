@@ -863,6 +863,28 @@
   .mock-msg.in{background:rgba(255,255,255,0.06);color:#c8c8d4;}
   .mock-msg.out{background:var(--accent);color:#000;margin-left:auto;}
 
+  /* CRM 擬真淺色變體（對齊 crm-note-tool：米底 + 深綠 + 表單流）*/
+  .mock.mock-light{background:#f4f3ef;color:#1a1a1a;font-family:'Noto Sans TC',sans-serif;}
+  .mock-light .mock-chrome{background:#e8e6e0;border-bottom:1px solid rgba(0,0,0,0.08);}
+  .mock-light .mock-url-bar{background:#fff;color:#999;}
+  .mock-light .mock-chrome .d1,.mock-light .mock-chrome .d2,.mock-light .mock-chrome .d3{opacity:0.85;}
+  .mock-crm2{padding:11px;height:calc(100% - 22px);display:flex;flex-direction:column;gap:7px;}
+  .mock-crm2-head{display:flex;justify-content:space-between;align-items:center;}
+  .mock-crm2-title{font-size:10px;font-weight:900;color:#1a1a1a;}
+  .mock-crm2-badge{font-size:7px;background:#2d5a3d;color:#fff;padding:3px 7px;border-radius:4px;font-weight:700;}
+  .mock-crm2-tabs{display:flex;gap:14px;border-bottom:1px solid #dddbd5;}
+  .mock-crm2-tabs span{font-size:8.5px;color:#999;padding-bottom:5px;font-weight:700;}
+  .mock-crm2-tabs span.active{color:#1a1a1a;border-bottom:2px solid #1a1a1a;}
+  .mock-crm2-card{background:#fff;border:1px solid #dddbd5;border-radius:6px;padding:9px;}
+  .mock-crm2-label{font-family:'DM Sans',sans-serif;font-size:7px;letter-spacing:0.1em;color:#999;text-transform:uppercase;margin-bottom:6px;font-weight:700;}
+  .mock-crm2-search{background:#f4f3ef;border:1px solid #dddbd5;border-radius:5px;padding:6px 8px;font-size:8px;color:#999;display:flex;justify-content:space-between;}
+  .mock-crm2-result{margin-top:6px;font-size:8px;color:#1a1a1a;background:#e8f0ea;border-radius:4px;padding:5px 7px;}
+  .mock-crm2-field{display:flex;gap:6px;align-items:center;margin-bottom:5px;}
+  .mock-crm2-field>span{font-size:7.5px;color:#888;width:46px;flex-shrink:0;}
+  .mock-crm2-input{flex:1;background:#f4f3ef;border:1px solid #dddbd5;border-radius:4px;padding:4px 6px;font-size:7.5px;color:#1a1a1a;}
+  .mock-crm2-btn{margin-top:7px;background:#2d5a3d;color:#fff;text-align:center;border-radius:5px;padding:7px;font-size:8.5px;font-weight:700;}
+  .mock-watermark.light{background:rgba(255,255,255,0.75);color:rgba(45,90,61,0.7);}
+
   .showcase-content{padding:24px 26px;}
   .showcase-label{
     font-family:'DM Sans',sans-serif;font-size:10px;
@@ -1557,45 +1579,32 @@
         </div>
       </div>
 
-      <!-- 2. CRM mockup (學員溝通紀錄) -->
+      <!-- 2. CRM mockup (客服溝通紀錄工具 — 擬真淺色表單流) -->
       <div class="showcase-card">
-        <div class="mock">
+        <div class="mock mock-light">
           <div class="mock-chrome">
             <span class="dot d1"></span><span class="dot d2"></span><span class="dot d3"></span>
-            <div class="mock-url-bar">crm-notes.app/clients</div>
+            <div class="mock-url-bar">crm-tool.app/notes</div>
           </div>
-          <div style="padding:12px;height:calc(100% - 22px);display:flex;flex-direction:column;">
-            <div class="mock-h">學員溝通紀錄</div>
-            <div class="mock-sub">客戶資料整合 · 共 14,328 筆紀錄</div>
-            <div class="mock-crm-cols">
-              <div class="mock-crm-list">
-                <div class="mock-crm-item active">
-                  <div class="mock-crm-name">學員 #M-2841</div>
-                  <div class="mock-crm-prev">您好，想問 Step 2 卡關...</div>
-                </div>
-                <div class="mock-crm-item">
-                  <div class="mock-crm-name">學員 #M-2837</div>
-                  <div class="mock-crm-prev">業師可以安排這週五嗎？</div>
-                </div>
-                <div class="mock-crm-item">
-                  <div class="mock-crm-name">學員 #M-2812</div>
-                  <div class="mock-crm-prev">我做完 Demo 了想 review</div>
-                </div>
-                <div class="mock-crm-item">
-                  <div class="mock-crm-name">學員 #M-2799</div>
-                  <div class="mock-crm-prev">接案資格有過嗎？</div>
-                </div>
-              </div>
-              <div class="mock-crm-detail">
-                <div style="font-size:8px;color:#8a8a98;margin-bottom:6px;letter-spacing:0.08em;">學員 #M-2841 · Day 23</div>
-                <div class="mock-msg in">想問 Step 2 第 3 個小作品卡住了，n8n 工作流接 API 一直失敗</div>
-                <div class="mock-msg out">我看了你的描述，建議先確認 API token 設定 — 或我幫你約業師 1 對 1？</div>
-                <div class="mock-msg in">好，那約週四下午可以嗎？</div>
-                <div class="mock-msg out">已幫你安排週四 14:00 林業師 ✓</div>
-              </div>
+          <div class="mock-crm2">
+            <div class="mock-crm2-head">
+              <span class="mock-crm2-title">客服工具</span>
+              <span class="mock-crm2-badge">經辦登入</span>
+            </div>
+            <div class="mock-crm2-tabs"><span class="active">新生公版</span><span>特殊申請</span></div>
+            <div class="mock-crm2-card">
+              <div class="mock-crm2-label">01 · 搜尋學員</div>
+              <div class="mock-crm2-search"><span>輸入學員信箱搜尋⋯</span><span>🔍</span></div>
+              <div class="mock-crm2-result">陳＊明 · student@example.com · 已購買</div>
+            </div>
+            <div class="mock-crm2-card">
+              <div class="mock-crm2-label">02 · 填寫紀錄</div>
+              <div class="mock-crm2-field"><span>分類項目</span><div class="mock-crm2-input">業師預約</div></div>
+              <div class="mock-crm2-field"><span>備註</span><div class="mock-crm2-input">學員想約本週業師諮詢⋯</div></div>
+              <div class="mock-crm2-btn">送出並同步</div>
             </div>
           </div>
-          <div class="mock-watermark">SAMPLE · NOT LIVE</div>
+          <div class="mock-watermark light">SAMPLE</div>
         </div>
         <div class="showcase-content">
           <div class="showcase-label">客戶管理工具</div>
