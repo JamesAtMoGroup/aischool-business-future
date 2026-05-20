@@ -383,10 +383,15 @@
   @media(max-width:880px){.resources{grid-template-columns:1fr;}}
   .resource{
     background:var(--surface);border:1px solid var(--border);
-    border-radius:10px;
+    border-radius:16px;
     overflow:hidden;
     display:flex;flex-direction:column;
   }
+  /* 橫跨整行的 featured 卡（避免奇數卡單獨留白）*/
+  .resource.resource-wide{grid-column:1/-1;flex-direction:row;}
+  .resource-wide .resource-cover{flex:0 0 44%;aspect-ratio:16/10;border-bottom:none;border-right:1px solid var(--border);}
+  .resource-wide .resource-content{flex:1;display:flex;flex-direction:column;justify-content:center;}
+  @media(max-width:880px){.resource.resource-wide{flex-direction:column;}.resource-wide .resource-cover{flex:auto;aspect-ratio:16/9;border-right:none;border-bottom:1px solid var(--border);}}
   .resource-cover{
     aspect-ratio:16/9;background:#000;
     border-bottom:1px solid var(--border);position:relative;overflow:hidden;
@@ -610,15 +615,20 @@
   }
   @media(max-width:880px){.line-demo{grid-template-columns:1fr;gap:28px;justify-items:center;text-align:center;}}
   .line-demo-caption{
-    color:var(--text-2);font-size:14px;line-height:1.85;
+    color:var(--text-2);font-size:17px;line-height:1.9;
   }
   .line-demo-caption .label{
-    display:inline-block;font-size:11px;letter-spacing:0.12em;color:var(--accent);
-    text-transform:uppercase;font-weight:700;margin-bottom:10px;
+    display:inline-block;font-size:13px;letter-spacing:0.14em;color:var(--accent);
+    text-transform:uppercase;font-weight:700;margin-bottom:14px;
   }
   .line-demo-caption h4{
-    font-size:18px;color:var(--text);margin-bottom:12px;font-weight:800;letter-spacing:-0.005em;
+    font-size:clamp(26px,2.6vw,34px);color:var(--text);margin-bottom:18px;font-weight:800;letter-spacing:-0.01em;line-height:1.2;
   }
+  .line-demo-caption p{font-size:16.5px;line-height:1.85;}
+  .line-feats{list-style:none;margin:22px 0;display:flex;flex-direction:column;gap:13px;}
+  .line-feats li{font-size:15.5px;color:var(--text);padding-left:28px;position:relative;line-height:1.5;}
+  .line-feats li::before{content:'✓';position:absolute;left:0;top:0;color:var(--accent);font-weight:900;font-size:15px;}
+  .line-demo-caption .note{font-size:12.5px;color:var(--text-3);margin-top:20px;opacity:0.75;}
   .line-phone{
     position:relative;width:320px;height:580px;flex-shrink:0;
     background:#0a0a10;border:6px solid #1a1a22;border-radius:36px;
@@ -1297,7 +1307,7 @@
       <!-- 每日專欄文章 (ai-school.tw/columns) -->
       <div class="resource">
         <div class="resource-cover">
-          <img src="assets/ig/slide_01.png" alt="每日 AI 專欄">
+          <img src="assets/columns-banner.png" alt="每日 AI 專欄">
         </div>
         <div class="resource-content">
           <div class="resource-label">每天更新</div>
@@ -1330,8 +1340,8 @@
           <div class="resource-where">直播 + 回放</div>
         </div>
       </div>
-      <!-- 接案媒合: 抽象示意 (cover_實戰課程 hue-rotate 180deg 變藍紫商業感，非上課照片) -->
-      <div class="resource">
+      <!-- 接案媒合: 橫跨整行 featured (抽象示意 cover_實戰課程 hue-rotate 變商業感) -->
+      <div class="resource resource-wide">
         <div class="resource-cover">
           <img src="assets/cover_實戰課程.jpg" alt="合作接案媒合平台" style="filter:hue-rotate(180deg) brightness(0.95);">
         </div>
@@ -1530,8 +1540,14 @@
         <div class="line-demo-caption">
           <span class="label">10 秒內回應 · 全年無休</span>
           <h4>實際對話像這樣</h4>
-          <p>它會從<strong>學院課程庫</strong>找答案、給你<strong>具體可執行的步驟</strong>。學員想看相關的學院文章，也可以直接跟它要連結。不是制式回覆，是認得你、懂你卡在哪的教練。</p>
-          <p style="margin-top:14px;font-size:12px;color:var(--text-3);opacity:0.7;">＊示意對話 · 實際內容依你的問題與學習進度動態生成</p>
+          <p>它會從<strong>學院課程庫</strong>找答案、給你<strong>具體可執行的步驟</strong>。不是制式罐頭回覆，是認得你、懂你卡在哪的教練。</p>
+          <ul class="line-feats">
+            <li>認得你、記得你的學習進度</li>
+            <li>懂學院所有課程內容，從課程庫即時找答案</li>
+            <li>給可執行的步驟，不是貼罐頭回覆</li>
+            <li>需要時主動提供相關的學院文章連結</li>
+          </ul>
+          <p class="note">＊示意對話 · 實際內容依你的問題與學習進度動態生成</p>
         </div>
       </div>
 
