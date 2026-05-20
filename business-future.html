@@ -280,12 +280,22 @@
 
   /* ────── Live bridge（說明在上 + 場次卡整排橫向輪播在下）────── */
   .live-bridge{
+    position:relative;
     width:100%;margin:60px auto;max-width:1040px;
     background:linear-gradient(135deg,var(--surface),rgba(255,159,67,0.05));
     border:1px solid var(--border);
     border-radius:16px;padding:32px 0 28px;
   }
   .live-intro{padding:0 36px;max-width:780px;}
+  .live-cta{
+    position:absolute;top:30px;right:36px;
+    font-family:'DM Sans',sans-serif;font-size:0.82rem;font-weight:600;
+    color:#000;background:var(--accent);
+    padding:9px 16px;border-radius:8px;text-decoration:none;white-space:nowrap;
+    transition:transform 0.25s ease,box-shadow 0.25s ease;
+  }
+  .live-cta:hover{transform:translateY(-2px);box-shadow:0 10px 24px rgba(124,255,178,0.3);}
+  @media(max-width:600px){.live-cta{position:static;display:inline-block;margin:0 22px 14px;}}
   @media(max-width:780px){.live-bridge{padding:24px 0 20px;}.live-intro{padding:0 22px;}}
   .live-tag{
     font-family:'DM Sans',sans-serif;font-size:11px;
@@ -1157,6 +1167,7 @@
 
       <!-- Live bridge: 每週實戰直播（場次輪播動畫，取代原影片）-->
       <div class="live-bridge fade-up">
+        <a class="live-cta" href="https://jamesatmogroup.github.io/ai-school-lecture/" target="_blank" rel="noopener">看近期活動 →</a>
         <div class="live-intro">
           <div class="live-tag">每週一場 · 直播 + 回放</div>
           <div class="live-title">每週實戰直播</div>
@@ -1581,7 +1592,7 @@
                 <div class="mock-row"><div style="flex:2">MCP 連 GitHub 失敗⋯</div><div><span class="badge badge-green">課程</span></div><div>已解決</div></div>
                 <div class="mock-row"><div style="flex:2">希望能加匯出功能</div><div><span class="badge badge-orange">建議</span></div><div>處理中</div></div>
                 <div class="mock-row"><div style="flex:2">課程內容想確認⋯</div><div><span class="badge badge-mentor">客訴</span></div><div>已升級</div></div>
-                <div class="mock-row"><div style="flex:2">業師預約方式？</div><div><span class="badge badge-green">行政</span></div><div>轉助教</div></div>
+                <div class="mock-row"><div style="flex:2">發票要怎麼開？</div><div><span class="badge badge-green">行政</span></div><div>轉專人</div></div>
               </div>
             </div>
           </div>
@@ -1604,19 +1615,19 @@
           </div>
           <div class="mock-crm2">
             <div class="mock-crm2-head">
-              <span class="mock-crm2-title">客服工具</span>
-              <span class="mock-crm2-badge">經辦登入</span>
+              <span class="mock-crm2-title">客戶管理</span>
+              <span class="mock-crm2-badge">登入</span>
             </div>
-            <div class="mock-crm2-tabs"><span class="active">新生公版</span><span>特殊申請</span></div>
+            <div class="mock-crm2-tabs"><span class="active">客戶列表</span><span>新增紀錄</span></div>
             <div class="mock-crm2-card">
-              <div class="mock-crm2-label">01 · 搜尋學員</div>
-              <div class="mock-crm2-search"><span>輸入學員信箱搜尋⋯</span><span>🔍</span></div>
-              <div class="mock-crm2-result">陳＊明 · student@example.com · 已購買</div>
+              <div class="mock-crm2-label">01 · 搜尋客戶</div>
+              <div class="mock-crm2-search"><span>輸入客戶信箱搜尋⋯</span><span>🔍</span></div>
+              <div class="mock-crm2-result">陳＊明 · client@example.com · VIP 客戶</div>
             </div>
             <div class="mock-crm2-card">
               <div class="mock-crm2-label">02 · 填寫紀錄</div>
-              <div class="mock-crm2-field"><span>分類項目</span><div class="mock-crm2-input">業師預約</div></div>
-              <div class="mock-crm2-field"><span>備註</span><div class="mock-crm2-input">學員想約本週業師諮詢⋯</div></div>
+              <div class="mock-crm2-field"><span>分類項目</span><div class="mock-crm2-input">諮詢預約</div></div>
+              <div class="mock-crm2-field"><span>備註</span><div class="mock-crm2-input">客戶想預約本週諮詢⋯</div></div>
               <div class="mock-crm2-btn">送出並同步</div>
             </div>
           </div>
