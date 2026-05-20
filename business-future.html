@@ -52,7 +52,10 @@
     --mentor-bg:rgba(168,85,247,0.12);
   }
   *{margin:0;padding:0;box-sizing:border-box;}
-  html{scroll-behavior:smooth;}
+  html{scroll-behavior:smooth;overflow-x:hidden;}
+  /* 防 flex item min-width:auto 被內部 max-content carousel 撐爆（手機爆版根因）*/
+  .live-bridge,.station,.stations,.live-intro{min-width:0;}
+  .live-schedule,.ig-carousel{min-width:0;max-width:100%;}
   /* 標題用 Syne（對齊官網主視覺），中文 fallback Noto Sans TC */
   h1,h2,h3,h4,.station-title,.live-title,.fde-h2,.closing-line,.mock-h,.mock-hero-h,.outcome h2,.ending h3{
     font-family:'Syne','Noto Sans TC',sans-serif;
@@ -243,7 +246,6 @@
   .mentor-inline{
     margin-top:22px;padding:16px 18px;
     background:var(--mentor-bg);border-radius:8px;
-    border-left:3px solid var(--mentor);
     font-size:14px;color:var(--text-2);line-height:1.7;
   }
   .mentor-inline strong{color:var(--mentor);}
@@ -256,11 +258,10 @@
 
   /* ────── Live bridge（說明在上 + 場次卡整排橫向輪播在下）────── */
   .live-bridge{
-    margin:60px auto;max-width:1040px;
+    width:100%;margin:60px auto;max-width:1040px;
     background:linear-gradient(135deg,var(--surface),rgba(255,159,67,0.05));
-    border:1px solid var(--accent2-bg);
-    border-left:4px solid var(--accent2);
-    border-radius:14px;padding:32px 0 28px;
+    border:1px solid var(--border);
+    border-radius:16px;padding:32px 0 28px;
   }
   .live-intro{padding:0 36px;max-width:780px;}
   @media(max-width:780px){.live-bridge{padding:24px 0 20px;}.live-intro{padding:0 22px;}}
@@ -289,7 +290,6 @@
     display:flex;align-items:center;flex-shrink:0;
     width:250px;min-height:104px;padding:22px;border-radius:12px;
     background:var(--surface);border:1px solid var(--border);
-    border-left:3px solid var(--accent2);
     transition:transform 0.25s ease,border-color 0.25s ease;
   }
   .live-event:hover{transform:translateY(-4px);}
@@ -302,7 +302,7 @@
   .outcome-card{
     margin-top:64px;
     background:var(--surface);border:1px solid var(--border);
-    border-top:4px solid var(--accent);border-radius:14px;
+    border-radius:14px;
     padding:48px;
   }
   .outcome-text-label{
@@ -329,7 +329,6 @@
     margin-top:64px;
     background:linear-gradient(135deg,rgba(168,85,247,0.06),rgba(168,85,247,0.12));
     border:1px solid var(--mentor-bg);
-    border-left:4px solid var(--mentor);
     border-radius:12px;padding:40px 36px;
   }
   .mentor-journey h3{font-size:22px;font-weight:900;margin-bottom:10px;}
@@ -352,7 +351,7 @@
   @media(max-width:880px){.resources{grid-template-columns:1fr;}}
   .resource{
     background:var(--surface);border:1px solid var(--border);
-    border-top:3px solid var(--accent);border-radius:10px;
+    border-radius:10px;
     overflow:hidden;
     display:flex;flex-direction:column;
   }
@@ -391,7 +390,6 @@
   .resource-qualify{
     margin-top:14px;padding:13px 14px;
     background:var(--surface-2);border-radius:6px;
-    border-left:3px solid var(--accent2);
     font-size:12.5px;color:var(--text-2);line-height:1.65;
   }
   .resource-qualify-label{
@@ -438,7 +436,6 @@
   .fde-track{
     background:linear-gradient(135deg,rgba(26,26,35,0.92),rgba(255,159,67,0.06));
     border:1px solid var(--accent2-bg);
-    border-left:4px solid var(--accent2);
     border-radius:14px;padding:48px 40px;
     backdrop-filter:blur(14px);
   }
@@ -499,12 +496,6 @@
     border-radius:12px;padding:30px 26px;
     position:relative;overflow:hidden;
   }
-  .align-card::before{
-    content:'';position:absolute;top:0;left:0;width:100%;height:3px;
-    background:var(--accent);
-  }
-  .align-card.orange::before{background:var(--accent2);}
-  .align-card.mentor::before{background:var(--mentor);}
   .align-label{
     font-family:'DM Sans',sans-serif;font-size:10px;
     letter-spacing:0.2em;color:var(--accent);
@@ -558,7 +549,7 @@
   /* AI 教練範圍 */
   .agent-scope{
     margin-top:48px;background:linear-gradient(135deg,var(--surface),rgba(168,85,247,0.04));
-    border:1px solid var(--mentor-bg);border-left:4px solid var(--mentor);
+    border:1px solid var(--mentor-bg);
     border-radius:12px;padding:36px;
   }
   .agent-scope h3{font-size:20px;font-weight:900;margin-bottom:8px;}
@@ -668,7 +659,7 @@
   .assistant-note{
     margin-top:32px;padding:20px 24px;
     background:linear-gradient(135deg,rgba(255,159,67,0.08),rgba(255,159,67,0.02));
-    border:1px solid rgba(255,159,67,0.25);border-left:3px solid var(--accent2);
+    border:1px solid rgba(255,159,67,0.25);
     border-radius:10px;display:flex;gap:16px;align-items:flex-start;
   }
   .assistant-note-icon{
